@@ -13,6 +13,12 @@ function App() {
 
         <Weather />
       </div>
+      <small>
+        <a href="https://github.com/natalie-maks/weather-app-react">
+          Open-source code
+        </a>
+        , by Natalia Maksymenko
+      </small>
     </div>
   );
 }
