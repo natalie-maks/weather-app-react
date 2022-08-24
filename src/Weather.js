@@ -10,6 +10,18 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [units, setUnits] = useState("celsius");
 
+  function getPosition(position) {
+    let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrlCurrent).then(showWeather);
+  }
+
+  function position() {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
   function showFahrenheit(event) {
     event.preventDefault();
     setUnits("fahrenheit");
@@ -36,6 +48,7 @@ export default function Weather(props) {
         units: "celsius",
         ready: true,
       });
+      setCity(response.data.name);
     } else {
       setWeatherData({
         cityName: response.data.name,
@@ -49,6 +62,7 @@ export default function Weather(props) {
         units: "fahrenheit",
         ready: true,
       });
+      setCity(response.data.name);
     }
   }
 
@@ -84,7 +98,9 @@ export default function Weather(props) {
             </button>
           </form>
           <div>
-            <button className="current-button">Current</button>
+            <button className="current-button" onClick={position}>
+              Current
+            </button>
           </div>
           <button className="temperature-button" onClick={showCelsius}>
             ℃
