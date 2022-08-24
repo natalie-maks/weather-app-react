@@ -54,7 +54,7 @@ p {
   height: 35px;
 }
 
-.heading {
+.Heading {
   margin: 30px auto 15px;
   display: grid;
   grid-template-columns: 70% 28.5%;
@@ -93,7 +93,7 @@ p {
   margin: 30px auto 40px;
 }
 
-.current-weather-indicators {
+.CurrentWeatherIndicators {
   display: grid;
   grid-template-columns: 12% 19% 19% 20% 20%;
   column-gap: 2.5%;
