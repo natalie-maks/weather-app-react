@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
+import WeatherIcon from "./WeatherIcon";
 
 import axios from "axios";
 
@@ -18,6 +19,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       feelsLike: Math.round(response.data.main.feels_like),
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].icon,
       ready: true,
     });
   }
@@ -90,12 +92,7 @@ export default function Weather(props) {
 
           <div className="current-weather-main">
             <div className="current-weather-icon">
-              <img
-                src="/images/04d.svg"
-                alt={weatherData.description}
-                width="94px"
-                id="weather-icon"
-              />
+              <WeatherIcon code={weatherData.icon} />
             </div>
 
             <div className="current-weather-temp">
