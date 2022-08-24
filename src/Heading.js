@@ -14,13 +14,9 @@ export default function Heading(props) {
       </div>
       <div className="heading-item">
         <h4>
-          <span id="day-of-week">
-            <FormattedDate date={props.data.date} />
-          </span>{" "}
+          <FormattedDate date={props.data.date} />
           <br />
-          <span id="date">
-            <FormattedTime time={props.data.date} />
-          </span>
+          <FormattedTime time={props.data.date} />
         </h4>
       </div>
     </div>

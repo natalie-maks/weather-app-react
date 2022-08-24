@@ -30,5 +30,9 @@ export default function FormattedDate(props) {
 
   let date = props.date.getDate();
 
-  return `${dayOfWeek}, ${month} ${date}`;
+  return (
+    <span>
+      {dayOfWeek}, {month} {date}
+    </span>
+  );
 }
