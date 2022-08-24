@@ -1,6 +1,5 @@
 import "./App.css";
-import Search from "./Search";
-import Heading from "./Heading";
+
 import Weather from "./Weather";
 
 function App() {

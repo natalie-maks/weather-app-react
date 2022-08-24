@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
+
+import axios from "axios";
+
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
@@ -11,6 +16,8 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
       feelsLike: Math.round(response.data.main.feels_like),
+      date: new Date(response.data.dt * 1000),
+      ready: true,
     });
   }
 
@@ -51,8 +58,13 @@ export default function Weather(props) {
           </div>
           <div className="heading-item">
             <h4>
-              <span id="day-of-week">Wednesday, Aug 17</span> <br />
-              <span id="date">14:14</span>
+              <span id="day-of-week">
+                <FormattedDate date={weatherData.date} />
+              </span>{" "}
+              <br />
+              <span id="date">
+                <FormattedTime time={weatherData.date} />
+              </span>
             </h4>
           </div>
         </div>
