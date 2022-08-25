@@ -1,13 +1,15 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Heading(props) {
   return (
     <div className="Heading">
       <div>
         <h1>
-          <i className="fa-solid fa-location-dot pin-icon" id="icon"></i>
+          <FontAwesomeIcon icon={solid("location-dot")} className="pin-icon" />
         </h1>
         <h1 id="city-heading">{props.data.cityName}</h1>
       </div>
