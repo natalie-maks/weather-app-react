@@ -22,7 +22,7 @@ export default function WeatherForecast(props) {
           if (index < 5) {
             return (
               <div key={index}>
-                <WeatherForecastDay data={day} />
+                <WeatherForecastDay data={day} units={props.units} />
               </div>
             );
           } else {

@@ -123,7 +123,7 @@ export default function Weather(props) {
 
         <h3>Weather forecast</h3>
 
-        <WeatherForecast coord={weatherData.coord} />
+        <WeatherForecast coord={weatherData.coord} units={weatherData.units} />
       </div>
     );
   } else {

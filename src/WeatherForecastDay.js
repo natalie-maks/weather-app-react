@@ -2,14 +2,24 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastDay(props) {
-  function maxTemp() {
+  function maxTempCel() {
     let maxTemp = Math.round(props.data.temp.max);
     return `${maxTemp}°`;
   }
 
-  function minTemp() {
+  function minTempCel() {
     let minTemp = Math.round(props.data.temp.min);
     return `${minTemp}°`;
+  }
+
+  function maxTempFahr() {
+    let maxTempFahr = Math.round((props.data.temp.max * 9) / 5 + 32);
+    return `${maxTempFahr}°`;
+  }
+
+  function minTempFahr() {
+    let minTempFahr = Math.round((props.data.temp.min * 9) / 5 + 32);
+    return `${minTempFahr}°`;
   }
 
   function date() {
@@ -34,14 +44,27 @@ export default function WeatherForecastDay(props) {
     return `${month} ${day}`;
   }
 
-  return (
-    <div className="WeatherForecastDay">
-      <h4>{date()}</h4>
-      <WeatherIcon code={props.data.weather[0].icon} size={100} />
-      <p>
-        {" "}
-        <span>{maxTemp()}</span> / <span>{minTemp()}</span>
-      </p>
-    </div>
-  );
+  if (props.units === "celsius") {
+    return (
+      <div className="WeatherForecastDay">
+        <h4>{date()}</h4>
+        <WeatherIcon code={props.data.weather[0].icon} size={100} />
+        <p>
+          {" "}
+          <span>{maxTempCel()}</span> / <span>{minTempCel()}</span>
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="WeatherForecastDay">
+        <h4>{date()}</h4>
+        <WeatherIcon code={props.data.weather[0].icon} size={100} />
+        <p>
+          {" "}
+          <span>{maxTempFahr()}</span> / <span>{minTempFahr()}</span>
+        </p>
+      </div>
+    );
+  }
 }
