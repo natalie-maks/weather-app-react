@@ -1,5 +1,4 @@
 import React from "react";
-
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 
@@ -8,7 +7,7 @@ export default function Heading(props) {
     <div className="Heading">
       <div>
         <h1>
-          <i className="fa-solid fa-location-dot pin-icon"></i>
+          <i className="fa-solid fa-location-dot pin-icon" id="icon"></i>
         </h1>
         <h1 id="city-heading">{props.data.cityName}</h1>
       </div>

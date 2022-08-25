@@ -92,7 +92,7 @@ export default function Weather(props) {
             <input
               type="text"
               placeholder="Enter a city..."
-              autocomplete="off"
+              autoComplete="off"
               className="city-input"
               onChange={handleCityChange}
             />
