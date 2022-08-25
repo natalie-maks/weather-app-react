@@ -7,15 +7,22 @@ export default function WeatherForecast(props) {
   const [forecast, setForecast] = useState(null);
 
   function showForecast(response) {
-    console.log(response);
-    setForecast(response.data.daily[0]);
+    setForecast(response.data.daily);
     setReady(true);
   }
 
   if (ready) {
     return (
-      <div class="eatherForecast">
-        <WeatherForecastDay data={forecast} />
+      <div class="WeatherForecast">
+        {forecast.map(function (day, index) {
+          if (index < 5) {
+            return (
+              <div key={index}>
+                <WeatherForecastDay data={day} />
+              </div>
+            );
+          }
+        })}
       </div>
     );
   } else {
