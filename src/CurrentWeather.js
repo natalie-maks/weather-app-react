@@ -9,7 +9,7 @@ export default function CurrentWeather(props) {
 
   if (props.data.units === "celsius") {
     return (
-      <div className="current-weather">
+      <div className="CurrentWeather">
         <h3>Current weather</h3>
 
         <div className="current-weather-main">
@@ -35,12 +35,12 @@ export default function CurrentWeather(props) {
     );
   } else {
     return (
-      <div className="current-weather">
+      <div className="CurrentWeather">
         <h3>Current weather</h3>
 
         <div className="current-weather-main">
           <div className="current-weather-icon">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={94} />
           </div>
 
           <div className="current-weather-temp">

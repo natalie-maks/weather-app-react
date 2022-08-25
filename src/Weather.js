@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Heading from "./Heading";
 import CurrentWeather from "./CurrentWeather";
+import WeatherForecast from "./WeatherForecast";
 
 import axios from "axios";
 
@@ -46,6 +47,7 @@ export default function Weather(props) {
         date: new Date(response.data.dt * 1000),
         icon: response.data.weather[0].icon,
         units: "celsius",
+        coord: response.data.coord,
         ready: true,
       });
       setCity(response.data.name);
@@ -60,6 +62,7 @@ export default function Weather(props) {
         date: new Date(response.data.dt * 1000),
         icon: response.data.weather[0].icon,
         units: "fahrenheit",
+        coord: response.data.coord,
         ready: true,
       });
       setCity(response.data.name);
@@ -112,6 +115,10 @@ export default function Weather(props) {
         <Heading data={weatherData} />
 
         <CurrentWeather data={weatherData} />
+
+        <h3>Weather forecast</h3>
+
+        <WeatherForecast coord={weatherData.coord} />
       </div>
     );
   } else {
