@@ -3,20 +3,12 @@
   padding: 30px;
   border-radius: 7px;
   box-shadow: 0 0 15px rgba(75, 75, 75, 0.55);
-  margin-bottom: 30px;
+  margin: 0 10px 30px;
 }
 
 .current-weather-main {
-  display: grid;
-  grid-template-columns: 17% 30% 51%;
   height: 95px;
   margin: 30px auto 40px;
-}
-
-.CurrentWeatherIndicators {
-  display: grid;
-  grid-template-columns: 12% 19% 19% 20% 20%;
-  column-gap: 2.5%;
 }
 
 .temperature-unit {

@@ -90,40 +90,47 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="Weather">
+      <div className="Weather container">
         <div className="search-block">
-          <form className="search-block-item" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter a city..."
-              autoComplete="off"
-              className="city-input"
-              onChange={handleCityChange}
-            />
-            <button type="submit" className="search-button">
-              <FontAwesomeIcon
-                icon={solid("magnifying-glass")}
-                className="search-icon"
-              />
-            </button>
-          </form>
-          <div>
-            <button className="current-button" onClick={position}>
-              Current
-            </button>
+          <div className="row gx-2">
+            <div className="col-7">
+              <form className="search-block-item" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  placeholder="Enter a city..."
+                  autoComplete="off"
+                  className="city-input"
+                  onChange={handleCityChange}
+                />
+                <button type="submit" className="search-button">
+                  <FontAwesomeIcon
+                    icon={solid("magnifying-glass")}
+                    className="search-icon"
+                  />
+                </button>
+              </form>
+            </div>
+            <div className="col-3">
+              <button className=" current-button" onClick={position}>
+                Current
+              </button>
+            </div>
+            <div className="col-1">
+              <button className=" temperature-button" onClick={showCelsius}>
+                ℃
+              </button>
+            </div>
+            <div className="col-1">
+              <button className="temperature-button" onClick={showFahrenheit}>
+                ℉
+              </button>
+            </div>
           </div>
-          <button className="temperature-button" onClick={showCelsius}>
-            ℃
-          </button>
-          <button className="temperature-button" onClick={showFahrenheit}>
-            ℉
-          </button>
         </div>
+
         <Heading data={weatherData} />
 
         <CurrentWeather data={weatherData} />
-
-        <h3>Weather forecast</h3>
 
         <WeatherForecast coord={weatherData.coord} units={weatherData.units} />
       </div>

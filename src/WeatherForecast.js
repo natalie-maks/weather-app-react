@@ -20,17 +20,20 @@ export default function WeatherForecast(props) {
   if (ready) {
     return (
       <div className="WeatherForecast">
-        {forecast.map(function (day, index) {
-          if (index < 5) {
-            return (
-              <div key={index}>
-                <WeatherForecastDay data={day} units={props.units} />
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <h3>Weather forecast</h3>
+        <div className="row">
+          {forecast.map(function (day, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={day} units={props.units} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
     );
   } else {

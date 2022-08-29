@@ -1,10 +1,15 @@
 .Heading {
-  margin: 30px auto 15px;
-  display: grid;
-  grid-template-columns: 70% 28.5%;
-  column-gap: 1.5%;
+  margin: 30px 0 15px;
 }
 
 .heading-item {
   text-align: right;
+}
+
+.pin-icon {
+  color: #424242a9;
+  font-size: 40px;
+  display: inline-block;
+  line-height: 0px;
+  padding: 0 7px;
 }

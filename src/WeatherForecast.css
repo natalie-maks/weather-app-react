@@ -1,8 +1,9 @@
 .WeatherForecast {
-  display: grid;
-  grid-template-columns: 18% 18% 18% 18% 18%;
-  column-gap: 2.5%;
   margin-bottom: 20px;
+}
+
+.WeatherForecast h3 {
+  padding-left: 10px;
 }
 
 .WeatherForecastDay {
@@ -12,4 +13,13 @@
   border: 1.9px solid #424242a9;
   border-radius: 7px;
   box-shadow: 0 0 15px rgba(75, 75, 75, 0.55);
+}
+
+.row {
+  margin: 0;
+}
+
+.col {
+  padding: 0;
+  margin: auto 10px;
 }
