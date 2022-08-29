@@ -1,0 +1,10 @@
+.Heading {
+  margin: 30px auto 15px;
+  display: grid;
+  grid-template-columns: 70% 28.5%;
+  column-gap: 1.5%;
+}
+
+.heading-item {
+  text-align: right;
+}

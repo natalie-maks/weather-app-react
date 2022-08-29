@@ -1,0 +1,33 @@
+.CurrentWeather {
+  background-color: rgba(255, 255, 255, 0.65);
+  padding: 30px;
+  border-radius: 7px;
+  box-shadow: 0 0 15px rgba(75, 75, 75, 0.55);
+  margin-bottom: 30px;
+}
+
+.current-weather-main {
+  display: grid;
+  grid-template-columns: 17% 30% 51%;
+  height: 95px;
+  margin: 30px auto 40px;
+}
+
+.CurrentWeatherIndicators {
+  display: grid;
+  grid-template-columns: 12% 19% 19% 20% 20%;
+  column-gap: 2.5%;
+}
+
+.temperature-unit {
+  display: inline-block;
+  position: relative;
+  top: -38px;
+  font-size: 40px;
+}
+
+.description {
+  text-transform: capitalize;
+  font-size: 36px;
+  margin: 6px auto 10px;
+}

@@ -4,6 +4,8 @@ import FormattedTime from "./FormattedTime";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
+import "./Heading.css";
+
 export default function Heading(props) {
   return (
     <div className="Heading">
@@ -11,7 +13,7 @@ export default function Heading(props) {
         <h1>
           <FontAwesomeIcon icon={solid("location-dot")} className="pin-icon" />
         </h1>
-        <h1 id="city-heading">{props.data.cityName}</h1>
+        <h1>{props.data.cityName}</h1>
       </div>
       <div className="heading-item">
         <h4>

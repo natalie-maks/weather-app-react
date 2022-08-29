@@ -2,6 +2,8 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 import CurrentWeatherIndicators from "./CurrentWeatherIndicators";
 
+import "./CurrentWeather.css";
+
 export default function CurrentWeather(props) {
   function calculateFahrenheit(number) {
     return Math.round((number * 9) / 5 + 32);
@@ -13,18 +15,18 @@ export default function CurrentWeather(props) {
         <h3>Current weather</h3>
 
         <div className="current-weather-main">
-          <div className="current-weather-icon">
+          <div>
             <WeatherIcon code={props.data.icon} size={94} />
           </div>
 
-          <div className="current-weather-temp">
+          <div>
             <h2>{Math.round(props.data.temp)}</h2>
             <h3 className="temperature-unit">°C</h3>
           </div>
 
-          <div className="current-weather-discription">
+          <div>
             <h3 className="description">{props.data.description}</h3>
-            <h4 className="feels-like">
+            <h4>
               Feels like: <span>{Math.round(props.data.feelsLike)}</span>
               <span>°C</span>
             </h4>
@@ -39,18 +41,18 @@ export default function CurrentWeather(props) {
         <h3>Current weather</h3>
 
         <div className="current-weather-main">
-          <div className="current-weather-icon">
+          <div>
             <WeatherIcon code={props.data.icon} size={94} />
           </div>
 
-          <div className="current-weather-temp">
+          <div>
             <h2>{calculateFahrenheit(props.data.temp)}</h2>
             <h3 className="temperature-unit">°F</h3>
           </div>
 
-          <div className="current-weather-discription">
+          <div>
             <h3 className="description">{props.data.description}</h3>
-            <h4 className="feels-like">
+            <h4>
               Feels like:{" "}
               <span>{calculateFahrenheit(props.data.feelsLike)}</span>
               <span>°F</span>
