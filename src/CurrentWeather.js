@@ -43,22 +43,24 @@ export default function CurrentWeather(props) {
         <h3>Current weather</h3>
 
         <div className="current-weather-main">
-          <div>
-            <WeatherIcon code={props.data.icon} size={94} />
-          </div>
+          <div className="row gx-2">
+            <div className="col-2">
+              <WeatherIcon code={props.data.icon} size={94} />
+            </div>
 
-          <div>
-            <h2>{calculateFahrenheit(props.data.temp)}</h2>
-            <h3 className="temperature-unit">°F</h3>
-          </div>
+            <div className="col-3">
+              <h2>{calculateFahrenheit(props.data.temp)}</h2>
+              <h3 className="temperature-unit">°F</h3>
+            </div>
 
-          <div>
-            <h3 className="description">{props.data.description}</h3>
-            <h4>
-              Feels like:{" "}
-              <span>{calculateFahrenheit(props.data.feelsLike)}</span>
-              <span>°F</span>
-            </h4>
+            <div className="col-7">
+              <h3 className=" description">{props.data.description}</h3>
+              <h4>
+                Feels like:{" "}
+                <span>{calculateFahrenheit(props.data.feelsLike)}</span>
+                <span>°F</span>
+              </h4>
+            </div>
           </div>
         </div>
         <CurrentWeatherIndicators data={props.data} />
