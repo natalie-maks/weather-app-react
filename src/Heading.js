@@ -18,13 +18,13 @@ export default function Heading(props) {
   return (
     <div className="Heading">
       <div className="row">
-        <div className="col-7">
+        <div className="col-md-7">
           <p className="pin-icon">
             <FontAwesomeIcon icon={solid("location-dot")} />
           </p>
           <h1>{props.data.cityName}</h1>
         </div>
-        <div className="col-5 heading-item">
+        <div className="col-md-5 d-none d-md-block heading-item">
           <h4>
             <FormattedDate date={new Date(locationTime)} />
             <br />

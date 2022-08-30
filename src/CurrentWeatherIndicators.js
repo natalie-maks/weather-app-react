@@ -65,25 +65,25 @@ export default function CurrentWeatherIndicators(props) {
     return (
       <div className="CurrentWeatherIndicators">
         <div className="row gx-2">
-          <div className="col-2">
-            <h4>WIND</h4>
-            <p>{props.data.wind} km/h</p>
-          </div>
-          <div className="col-2">
+          <div className="col col-md-2 mb-4 mb-md-1">
             <h4>HUMIDITY</h4>
             <p>{props.data.humidity} %</p>
           </div>
-          <div className="col">
+          <div className="col col-md">
             <h4>VISIBILITY</h4>
             <p>{indicators.visibility / 1000} km</p>
           </div>
-          <div className="col">
-            <h4>UV</h4>
-            <p>{uv()}</p>
+          <div className="col-3 col-md-2">
+            <h4>WIND</h4>
+            <p>{props.data.wind} km/h</p>
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <h4>AIR QUALITY</h4>
             <p>{airPolution[air]}</p>
+          </div>
+          <div className="col col-md">
+            <h4>UV</h4>
+            <p>{uv()}</p>
           </div>
         </div>
       </div>

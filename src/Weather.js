@@ -93,8 +93,25 @@ export default function Weather(props) {
     return (
       <div className="Weather container">
         <div className="search-block">
+          <div className="row  gx-2 mb-3 d-md-none">
+            <div className="col-8">
+              <button className=" current-button" onClick={position}>
+                Current
+              </button>
+            </div>
+            <div className="col-2">
+              <button className=" temperature-button" onClick={showCelsius}>
+                ℃
+              </button>
+            </div>
+            <div className="col-2">
+              <button className="temperature-button" onClick={showFahrenheit}>
+                ℉
+              </button>
+            </div>
+          </div>
           <div className="row gx-2">
-            <div className="col-7">
+            <div className="col-md-7">
               <form className="search-block-item" onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -111,17 +128,17 @@ export default function Weather(props) {
                 </button>
               </form>
             </div>
-            <div className="col-3">
+            <div className="d-none d-md-block col-md-3">
               <button className=" current-button" onClick={position}>
                 Current
               </button>
             </div>
-            <div className="col-1">
+            <div className="d-none d-md-block col-md-1">
               <button className=" temperature-button" onClick={showCelsius}>
                 ℃
               </button>
             </div>
-            <div className="col-1">
+            <div className="d-none d-md-block col-1">
               <button className="temperature-button" onClick={showFahrenheit}>
                 ℉
               </button>
