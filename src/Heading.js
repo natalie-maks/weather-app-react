@@ -7,6 +7,14 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "./Heading.css";
 
 export default function Heading(props) {
+  let currentDate = new Date(props.data.date * 1000);
+
+  let locationTime =
+    (props.data.date +
+      currentDate.getTimezoneOffset() * 60 +
+      props.data.timezone) *
+    1000;
+
   return (
     <div className="Heading">
       <div className="row">
@@ -18,9 +26,9 @@ export default function Heading(props) {
         </div>
         <div className="col-5 heading-item">
           <h4>
-            <FormattedDate date={props.data.date} />
+            <FormattedDate date={new Date(locationTime)} />
             <br />
-            <FormattedTime time={props.data.date} />
+            <FormattedTime time={new Date(locationTime)} />
           </h4>
         </div>
       </div>
