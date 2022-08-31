@@ -28,7 +28,7 @@ export default function Weather(props) {
   }
 
   useEffect(() => {
-    search();
+    setWeatherData({ ready: false });
   }, [units]);
 
   function showFahrenheit(event) {
