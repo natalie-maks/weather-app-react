@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
@@ -27,16 +27,18 @@ export default function Weather(props) {
     navigator.geolocation.getCurrentPosition(getPosition);
   }
 
+  useEffect(() => {
+    search();
+  }, [units]);
+
   function showFahrenheit(event) {
     event.preventDefault();
     setUnits("fahrenheit");
-    search();
   }
 
   function showCelsius(event) {
     event.preventDefault();
     setUnits("celsius");
-    search();
   }
 
   function showWeather(response) {
@@ -64,7 +66,8 @@ export default function Weather(props) {
         wind: Math.round(response.data.wind.speed),
         humidity: response.data.main.humidity,
         feelsLike: response.data.main.feels_like,
-        date: new Date(response.data.dt * 1000),
+        date: response.data.dt,
+        timezone: response.data.timezone,
         icon: response.data.weather[0].icon,
         units: "fahrenheit",
         coord: response.data.coord,
