@@ -58,9 +58,3 @@ p {
     width: 80px;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: red;
-  }
-}

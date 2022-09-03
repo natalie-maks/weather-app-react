@@ -64,7 +64,7 @@ button {
 }
 
 .search-icon {
-  color: #424242a9;
+  color: rgb(31, 31, 31);
 }
 
 @media (max-width: 900px) {
