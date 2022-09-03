@@ -8,7 +8,7 @@
 }
 
 .WeatherForecastDay {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(243, 243, 243, 0.65);
   padding: 20px 0 20px;
   text-align: center;
   border: 1.9px solid #424242a9;
@@ -49,11 +49,5 @@
 @media (max-width: 575px) {
   .WeatherForecastDay {
     min-width: auto;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .WeatherForecastDay {
-    background: rgba(255, 255, 255, 0.65);
   }
 }
