@@ -21,7 +21,7 @@ export default function CurrentWeather(props) {
           </div>
 
           <div className="col-7 col-sm-9 col-md-3">
-            <CurrentTemp units={props.data.units} temp={props.data.temp} />
+            <CurrentTemp units={props.units} temp={props.data.temp} />
           </div>
 
           <div className="col col-md-7">
@@ -29,7 +29,7 @@ export default function CurrentWeather(props) {
               {props.data.description}
             </h3>
             <CurrentFeelsLike
-              units={props.data.units}
+              units={props.units}
               feelsLike={props.data.feelsLike}
             />
           </div>

@@ -27,7 +27,7 @@ export default function WeatherForecast(props) {
               if (index > 0 && index < 6) {
                 return (
                   <div className="col-4 col-sm-3 col-md p-2" key={index}>
-                    <WeatherForecastDay data={day} units={props.units} />
+                    <WeatherForecastDay data={day} />
                   </div>
                 );
               } else {
@@ -42,7 +42,7 @@ export default function WeatherForecast(props) {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
     let lat = props.coord.lat;
     let lon = props.coord.lon;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${props.units}`;
     axios.get(apiUrl).then(showForecast);
     return `loading....`;
   }

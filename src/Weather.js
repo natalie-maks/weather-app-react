@@ -13,7 +13,7 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [units, setUnits] = useState("celsius");
+  const [units, setUnits] = useState("metric");
 
   function getPosition(position) {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
@@ -33,53 +33,33 @@ export default function Weather(props) {
 
   function showFahrenheit(event) {
     event.preventDefault();
-    setUnits("fahrenheit");
+    setUnits("imperial");
   }
 
   function showCelsius(event) {
     event.preventDefault();
-    setUnits("celsius");
+    setUnits("metric");
   }
 
   function showWeather(response) {
-    if (units === "celsius") {
-      setWeatherData({
-        cityName: response.data.name,
-        temp: response.data.main.temp,
-        description: response.data.weather[0].description,
-        wind: Math.round(response.data.wind.speed),
-        humidity: response.data.main.humidity,
-        feelsLike: response.data.main.feels_like,
-        date: response.data.dt,
-        timezone: response.data.timezone,
-        icon: response.data.weather[0].icon,
-        units: "celsius",
-        coord: response.data.coord,
-        ready: true,
-      });
-      setCity(response.data.name);
-    } else {
-      setWeatherData({
-        cityName: response.data.name,
-        temp: response.data.main.temp,
-        description: response.data.weather[0].description,
-        wind: Math.round(response.data.wind.speed),
-        humidity: response.data.main.humidity,
-        feelsLike: response.data.main.feels_like,
-        date: response.data.dt,
-        timezone: response.data.timezone,
-        icon: response.data.weather[0].icon,
-        units: "fahrenheit",
-        coord: response.data.coord,
-        ready: true,
-      });
-      setCity(response.data.name);
-    }
+    setWeatherData({
+      cityName: response.data.name,
+      temp: response.data.main.temp,
+      description: response.data.weather[0].description,
+      wind: Math.round(response.data.wind.speed),
+      humidity: response.data.main.humidity,
+      feelsLike: response.data.main.feels_like,
+      date: response.data.dt,
+      timezone: response.data.timezone,
+      icon: response.data.weather[0].icon,
+      coord: response.data.coord,
+      ready: true,
+    });
   }
 
   function search() {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showWeather);
   }
 
@@ -151,9 +131,9 @@ export default function Weather(props) {
 
         <Heading data={weatherData} />
 
-        <CurrentWeather data={weatherData} />
+        <CurrentWeather data={weatherData} units={units} />
 
-        <WeatherForecast coord={weatherData.coord} units={weatherData.units} />
+        <WeatherForecast coord={weatherData.coord} units={units} />
       </div>
     );
   } else {

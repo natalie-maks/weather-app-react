@@ -1,11 +1,8 @@
 import React from "react";
 
 export default function CurrentTemp(props) {
-  function calculateFahrenheit(number) {
-    return Math.round((number * 9) / 5 + 32);
-  }
 
-  if (props.units === "celsius") {
+  if (props.units === "metric") {
     return (
       <div className="CurrentTemp">
         <h2>{Math.round(props.temp)}</h2>
@@ -15,7 +12,7 @@ export default function CurrentTemp(props) {
   } else {
     return (
       <div className="CurrentTemp">
-        <h2>{calculateFahrenheit(props.temp)}</h2>
+        <h2>{Math.round(props.temp)}</h2>
         <h3 className="temperature-unit">°F</h3>
       </div>
     );

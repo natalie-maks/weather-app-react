@@ -1,11 +1,7 @@
 import React from "react";
 
 export default function CurrentFeelsLike(props) {
-  function calculateFahrenheit(number) {
-    return Math.round((number * 9) / 5 + 32);
-  }
-
-  if (props.units === "celsius") {
+  if (props.units === "metric") {
     return (
       <h4 className="feels-like">
         Feels like: <span>{Math.round(props.feelsLike)}</span>
@@ -15,7 +11,7 @@ export default function CurrentFeelsLike(props) {
   } else {
     return (
       <h4 className="feels-like">
-        Feels like: <span>{calculateFahrenheit(props.feelsLike)}</span>
+        Feels like: <span>{Math.round(props.feelsLike)}</span>
         <span>°F</span>
       </h4>
     );
