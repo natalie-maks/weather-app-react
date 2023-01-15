@@ -18,23 +18,15 @@ export default function WeatherForecast(props) {
 
   if (ready) {
     return (
-      <div className="WeatherForecast">
-        <div className=" horizontal-scrollable">
-          <div className="row pt-3 pb-3">
-            {forecast.map(function (day, index) {
-              if (index > 0 && index < 6) {
-                return (
-                  <div className="col-4 col-sm-3 col-md p-2" key={index}>
-                    <WeatherForecastDay data={day} />
-                  </div>
-                );
-              } else {
-                return null;
-              }
-            })}
-          </div>
-        </div>
-      </div>
+      <ul className="WeatherForecast">
+        {forecast.map(function (day, index) {
+          if (index > 0 && index < 6) {
+            return <WeatherForecastDay key={index} data={day} />;
+          } else {
+            return null;
+          }
+        })}
+      </ul>
     );
   } else {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;

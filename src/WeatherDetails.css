@@ -4,9 +4,14 @@
   right: 0;
   width: 496px;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  scrollbar-width: 0;
   background-color: #abc2d2;
   padding-inline: 52px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
 
 .WeatherDetails h3 {
@@ -37,4 +42,46 @@
 }
 .CurrentWeatherIndicators li span:last-of-type {
   font-weight: 400;
+}
+
+.WeatherForecast li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.WeatherForecast li:last-of-type {
+  margin-bottom: 60px;
+}
+
+.WeatherForecast li > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.WeatherForecast li > span:last-of-type {
+  align-items: flex-end;
+}
+
+.WeatherForecast .forecast-temp {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.WeatherForecast .forecast-descr {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.WeatherForecast .forecast-day {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+.WeatherForecast .forecast-date {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 300;
 }

@@ -1,9 +1,8 @@
 import React from "react";
-import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastDay(props) {
+  let today = new Date(props.data.dt * 1000);
   function date() {
-    let date = new Date(props.data.dt * 1000);
     let months = [
       "Jan",
       "Feb",
@@ -18,20 +17,48 @@ export default function WeatherForecastDay(props) {
       "Nov",
       "Dec",
     ];
-    let month = months[date.getMonth()];
-    let day = date.getDate();
 
-    return `${month} ${day}`;
+    function formateYear(year) {
+      let yearString = `${year}`;
+      return yearString.slice(2);
+    }
+
+    let month = months[today.getMonth()];
+    let day = today.getDate();
+    let year = formateYear(today.getFullYear());
+
+    return `${day} ${month} ${year}`;
   }
+
+  function day() {
+    let days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+
+    let day = days[today.getDay()];
+
+    return day;
+  }
+
   return (
-    <div className="WeatherForecastDay">
-      <h4>{date()}</h4>
-      <WeatherIcon code={props.data.weather[0].icon} size={100} />
-      <p>
-        {" "}
-        <span>{Math.round(props.data.temp.max)}°</span> /{" "}
-        <span>{Math.round(props.data.temp.min)}°</span>
-      </p>
-    </div>
+    <li className="WeatherForecastDay">
+      <span>
+        <span className="forecast-day">{day()}</span>
+        <span className="forecast-date">{date()}</span>
+      </span>
+
+      <span>
+        <span className="forecast-temp">
+          {Math.round(props.data.temp.day)}°
+        </span>
+        <span className="forecast-descr">{props.data.weather[0].main}</span>
+      </span>
+    </li>
   );
 }
