@@ -1,5 +1,6 @@
 .WeatherForecast {
   margin: 0 calc(10px - 0.25rem) 20px;
+  display: none;
 }
 
 .WeatherForecast h3 {

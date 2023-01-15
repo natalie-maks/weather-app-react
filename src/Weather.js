@@ -85,7 +85,7 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="Weather container">
+      <div className="Weather">
         <div className="search-block">
           <div className="row  gx-2 mb-3 d-md-none">
             <div className="col-8">
@@ -135,42 +135,39 @@ export default function Weather(props) {
           </div>
         </div>
 
-        <h1>{weatherData.cityName}</h1>
+        <div className="main-info">
+          <div>
+            <h1>{weatherData.cityName}</h1>
 
-        <div className="col-md-5 d-none d-md-block heading-item">
-          <h4>
-            <FormattedDate date={new Date(locationTime)} />
-            <br />
-            <FormattedTime time={new Date(locationTime)} />
-          </h4>
-        </div>
+            <p className="time-date">
+              <span>
+                <FormattedTime time={new Date(locationTime)} />
+              </span>{" "}
+              —{" "}
+              <span>
+                <FormattedDate date={new Date(locationTime)} />
+              </span>
+            </p>
+          </div>
 
-        <div className="CurrentWeather">
-          <h3>Current weather</h3>
-
-          <div className="current-weather-main">
-            <h3 className="d-block d-md-none description">
-              {weatherData.description}
-            </h3>
-            <div className="row gx-2">
-              <div className="col-7 col-sm-9 col-md-3">
-                <CurrentTemp units={units} temp={weatherData.temp} />
-              </div>
-
-              <div className="col col-md-7">
-                <h3 className="d-none d-md-block description">
-                  {weatherData.description}
-                </h3>
-                <CurrentFeelsLike
-                  units={units}
-                  feelsLike={weatherData.feelsLike}
-                />
-              </div>
+          <div className="temp-block">
+            <CurrentTemp units={units} temp={weatherData.temp} />
+            <div className="temp-descr">
+              <h2 className="description">{weatherData.description}</h2>
+              <CurrentFeelsLike
+                units={units}
+                feelsLike={weatherData.feelsLike}
+              />
             </div>
           </div>
-          <CurrentWeatherIndicators data={weatherData} />
+          <div className="menu-btns">
+            <button className="btn">D</button>
+            <button className="btn">S</button>
+            <button className="btn">L</button>
+            <button className="btn">C</button>
+          </div>
         </div>
-
+        <CurrentWeatherIndicators data={weatherData} />
         <WeatherForecast coord={weatherData.coord} units={units} />
       </div>
     );

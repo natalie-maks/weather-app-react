@@ -1,3 +1,92 @@
+.main-info {
+  margin-left: 80px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  margin-top: 60px;
+}
+
+p.time-date {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.temp-block {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 100px;
+}
+
+.CurrentTemp {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 52px;
+}
+
+.CurrentTemp .temp-digit {
+  font-size: 160px;
+  line-height: 120px;
+  font-weight: 400;
+}
+
+.CurrentTemp .temp-unit {
+  font-size: 60px;
+  line-height: 52px;
+  font-weight: 400;
+}
+
+.temp-descr .description {
+  text-transform: capitalize;
+  font-size: 52px;
+  line-height: 52px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.temp-descr .FeelsLike {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+}
+
+.menu-btns {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  width: 92px;
+  height: 92px;
+  border: none;
+  border-radius: 0;
+  font-size: 36px;
+}
+
+.btn:nth-child(1) {
+  background-color: #abc2d2;
+}
+.btn:nth-child(2) {
+  background-color: #b2cadb;
+}
+.btn:nth-child(3) {
+  background-color: #bad3e5;
+}
+.btn:nth-child(4) {
+  background-color: #c2dcf0;
+}
+
 .search-block {
   display: none;
   height: 35px;
@@ -59,20 +148,11 @@ button {
   color: rgb(31, 31, 31);
 }
 
-@media (max-width: 900px) {
-  .Weather {
-    margin: 0 auto;
-    padding-top: 60px;
-    box-shadow: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .search-block {
-    height: auto;
-  }
-}
-
 .CurrentWeatherIndicators {
   display: none;
+}
+
+.Weather {
+  height: 100%;
+  width: 100%;
 }
