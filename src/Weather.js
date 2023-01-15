@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 import Heading from "./Heading";
 import CurrentWeather from "./CurrentWeather";
@@ -103,12 +101,7 @@ export default function Weather(props) {
                   className="city-input"
                   onChange={handleCityChange}
                 />
-                <button type="submit" className="search-button">
-                  <FontAwesomeIcon
-                    icon={solid("magnifying-glass")}
-                    className="search-icon"
-                  />
-                </button>
+                <button type="submit" className="search-button"></button>
               </form>
             </div>
             <div className="d-none d-md-block col-md-3">
