@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 
-import "./WeatherForecast.css";
-
 export default function WeatherForecast(props) {
   const [ready, setReady] = useState(false);
   const [forecast, setForecast] = useState(null);
@@ -13,6 +11,7 @@ export default function WeatherForecast(props) {
   }, [props.coord]);
 
   function showForecast(response) {
+    console.log(response.data);
     setForecast(response.data.daily);
     setReady(true);
   }
@@ -20,7 +19,6 @@ export default function WeatherForecast(props) {
   if (ready) {
     return (
       <div className="WeatherForecast">
-        <h3>Weather forecast</h3>
         <div className=" horizontal-scrollable">
           <div className="row pt-3 pb-3">
             {forecast.map(function (day, index) {

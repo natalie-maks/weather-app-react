@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import WeatherForecast from "./WeatherForecast";
+import WeatherDetails from "./WeatherDetails";
 
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 
-import CurrentWeatherIndicators from "./CurrentWeatherIndicators";
 import CurrentTemp from "./CurrentTemp";
 import CurrentFeelsLike from "./CurrentFeelsLIke";
 
@@ -167,8 +166,8 @@ export default function Weather(props) {
             <button className="btn">C</button>
           </div>
         </div>
-        <CurrentWeatherIndicators data={weatherData} />
-        <WeatherForecast coord={weatherData.coord} units={units} />
+
+        <WeatherDetails data={weatherData} units={units} />
       </div>
     );
   } else {

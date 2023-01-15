@@ -1,0 +1,40 @@
+.WeatherDetails {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 496px;
+  height: 100%;
+  overflow: scroll;
+  background-color: #abc2d2;
+  padding-inline: 52px;
+}
+
+.WeatherDetails h3 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+  margin-top: 72px;
+  margin-bottom: 52px;
+}
+
+.CurrentWeatherIndicators {
+  border-bottom: 1px solid #000;
+}
+
+.CurrentWeatherIndicators li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.CurrentWeatherIndicators li:last-of-type {
+  margin-bottom: 60px;
+}
+
+.CurrentWeatherIndicators li span {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+}
+.CurrentWeatherIndicators li span:last-of-type {
+  font-weight: 400;
+}
