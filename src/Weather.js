@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import Heading from "./Heading";
 import CurrentWeather from "./CurrentWeather";
 import WeatherForecast from "./WeatherForecast";
+
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
 
 import axios from "axios";
 
@@ -70,6 +72,14 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  let currentDate = new Date(weatherData.date * 1000);
+
+  let locationTime =
+    (weatherData.date +
+      currentDate.getTimezoneOffset() * 60 +
+      weatherData.timezone) *
+    1000;
+
   if (weatherData.ready) {
     return (
       <div className="Weather container">
@@ -122,7 +132,15 @@ export default function Weather(props) {
           </div>
         </div>
 
-        <Heading data={weatherData} />
+        <h1>{weatherData.cityName}</h1>
+
+        <div className="col-md-5 d-none d-md-block heading-item">
+          <h4>
+            <FormattedDate date={new Date(locationTime)} />
+            <br />
+            <FormattedTime time={new Date(locationTime)} />
+          </h4>
+        </div>
 
         <CurrentWeather data={weatherData} units={units} />
 
