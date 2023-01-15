@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import CurrentWeather from "./CurrentWeather";
 import WeatherForecast from "./WeatherForecast";
 
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
+
+import CurrentWeatherIndicators from "./CurrentWeatherIndicators";
+import CurrentTemp from "./CurrentTemp";
+import CurrentFeelsLike from "./CurrentFeelsLIke";
 
 import axios from "axios";
 
@@ -142,7 +145,31 @@ export default function Weather(props) {
           </h4>
         </div>
 
-        <CurrentWeather data={weatherData} units={units} />
+        <div className="CurrentWeather">
+          <h3>Current weather</h3>
+
+          <div className="current-weather-main">
+            <h3 className="d-block d-md-none description">
+              {weatherData.description}
+            </h3>
+            <div className="row gx-2">
+              <div className="col-7 col-sm-9 col-md-3">
+                <CurrentTemp units={units} temp={weatherData.temp} />
+              </div>
+
+              <div className="col col-md-7">
+                <h3 className="d-none d-md-block description">
+                  {weatherData.description}
+                </h3>
+                <CurrentFeelsLike
+                  units={units}
+                  feelsLike={weatherData.feelsLike}
+                />
+              </div>
+            </div>
+          </div>
+          <CurrentWeatherIndicators data={weatherData} />
+        </div>
 
         <WeatherForecast coord={weatherData.coord} units={units} />
       </div>

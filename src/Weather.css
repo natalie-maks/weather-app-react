@@ -72,3 +72,7 @@ button {
     height: auto;
   }
 }
+
+.CurrentWeatherIndicators {
+  display: none;
+}
