@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v1 as uuidv1 } from "uuid";
 import "./Search.css";
 
-export default function Search() {
+export default function Search(props) {
   const [cities, setCities] = useState(() => {
     const localData = localStorage.getItem("cities");
     return localData
@@ -18,8 +18,6 @@ export default function Search() {
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
 
-  const [currentCity, setCurrentCity] = useState(`London`);
-
   function addCity(name) {
     setCities([...cities, { name, id: uuidv1() }]);
   }
@@ -28,22 +26,27 @@ export default function Search() {
     setCities(cities.filter((city) => city.id !== id));
   }
 
-  function changeCurrent(e) {
-    e.preventDefault();
-    console.log(e);
-    setCurrentCity(e.target[0].value);
-  }
-
   return (
     <div className="Search">
-      <form onSubmit={(e) => changeCurrent(e)}>
-        <input type="text" placeholder="Enter a city..." />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.search();
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Enter a city..."
+          onChange={(e) => {
+            props.setCity(e.target.value);
+          }}
+        />
         <input type="submit" value="add" />
       </form>
 
       <p className="current-city">
-        <span>{currentCity}</span>
-        <button onClick={() => addCity(currentCity)}>+</button>
+        <span>{props.cityName}</span>
+        <button onClick={() => addCity(props.city)}>+</button>
       </p>
 
       <ul>

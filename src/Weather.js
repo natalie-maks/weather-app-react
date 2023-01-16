@@ -169,7 +169,12 @@ export default function Weather(props) {
         </div>
 
         <WeatherDetails data={weatherData} units={units} />
-        <Search />
+        <Search
+          city={city}
+          setCity={setCity}
+          search={search}
+          cityName={weatherData.cityName}
+        />
       </div>
     );
   } else {
