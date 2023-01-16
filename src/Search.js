@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { v1 as uuidv1 } from "uuid";
 import "./Search.css";
 
+import SearchCurrentCity from "./SearchCurrentCity";
+
 export default function Search(props) {
   const [cities, setCities] = useState(() => {
     const localData = localStorage.getItem("cities");
@@ -31,8 +33,15 @@ export default function Search(props) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          props.search();
-          e.target[0].value = "";
+          if (
+            e.target[0].value.toLowerCase() === props.cityName.toLowerCase()
+          ) {
+            e.target[0].value = "";
+            return;
+          } else {
+            props.search(props.city);
+            e.target[0].value = "";
+          }
         }}
       >
         <input
@@ -47,16 +56,28 @@ export default function Search(props) {
         <input type="submit" value="S" className="search-btn" />
       </form>
 
-      <p className="current-city">
-        <span>{props.cityName}</span>
-        <button onClick={() => addCity(props.city)}>+</button>
-      </p>
+      <SearchCurrentCity
+        addCity={addCity}
+        city={props.city}
+        cityName={props.cityName}
+        cities={cities}
+        setCities={setCities}
+      />
 
       <ul className="cities-list">
         {cities.map((city) => {
           return (
             <li key={city.id}>
-              <span>{city.name}</span>
+              <span
+                onClick={(e) => {
+                  props.setCity(e.target.innerText);
+                  console.log(e.target.innerText);
+
+                  props.search(e.target.innerText);
+                }}
+              >
+                {city.name}
+              </span>
               <button onClick={() => removeCity(city.id)}>x</button>
             </li>
           );

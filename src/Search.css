@@ -44,13 +44,13 @@ form .search-btn {
   top: 0;
 }
 
-.current-city {
+.CurrentCity {
   display: flex;
   justify-content: space-between;
   margin-block: 52px;
 }
 
-.current-city button {
+.CurrentCity button {
   width: 20px;
   height: 20px;
   font-size: 32px;
