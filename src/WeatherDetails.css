@@ -8,6 +8,7 @@
   scrollbar-width: 0;
   background-color: #abc2d2;
   padding-inline: 52px;
+  display: none;
 }
 
 ::-webkit-scrollbar {

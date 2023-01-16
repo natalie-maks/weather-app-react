@@ -1,0 +1,11 @@
+.Search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 496px;
+  height: 100%;
+  background-color: #abc2d2;
+  padding-inline: 52px;
+  font-size: 28px;
+  line-height: 32px;
+}

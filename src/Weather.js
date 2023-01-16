@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import WeatherDetails from "./WeatherDetails";
+import Search from "./Search";
 
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
@@ -168,6 +169,7 @@ export default function Weather(props) {
         </div>
 
         <WeatherDetails data={weatherData} units={units} />
+        <Search />
       </div>
     );
   } else {
