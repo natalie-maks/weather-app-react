@@ -74,6 +74,11 @@ p.time-date {
   font-size: 36px;
 }
 
+.btn span {
+  font-size: 36px;
+  line-height: 36px;
+}
+
 .btn:nth-child(1) {
   background-color: #abc2d2;
 }

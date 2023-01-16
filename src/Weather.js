@@ -114,16 +114,18 @@ export default function Weather(props) {
           </div>
           <div className="menu-btns">
             <button className="btn" onClick={changeDetailsVisib}>
-              D
+              <span className="material-symbols-outlined">query_stats</span>{" "}
             </button>
             <button className="btn" onClick={changeSearchVisib}>
-              S
+              <span className="material-symbols-outlined">search</span>
             </button>
             <button className="btn" onClick={position}>
-              L
+              <span className="material-symbols-outlined">location_on</span>
             </button>
             <button className="btn" onClick={changeUnits}>
-              C
+              <span className="material-symbols-outlined">
+                device_thermostat
+              </span>
             </button>
           </div>
         </div>

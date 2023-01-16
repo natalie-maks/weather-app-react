@@ -24,6 +24,11 @@
   border-radius: 0;
 }
 
+.WeatherDetails .close-btn span {
+  font-size: 36px;
+  line-height: 36px;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }

@@ -14,7 +14,7 @@ export default function WeatherDetails(props) {
       }}
     >
       <button className="close-btn" onClick={() => props.change()}>
-        Cl
+        <span className="material-symbols-outlined">arrow_forward_ios</span>
       </button>
       <div className="main-container">
         <h3>Weather Details</h3>

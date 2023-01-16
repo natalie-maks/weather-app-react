@@ -37,7 +37,7 @@ export default function Search(props) {
       }}
     >
       <button className="close-btn" onClick={() => props.change()}>
-        Cl
+        <span className="material-symbols-outlined">arrow_forward_ios</span>
       </button>
 
       <div className="main-container">
@@ -64,7 +64,9 @@ export default function Search(props) {
             autoComplete="off"
             className="city-input"
           />
-          <input type="submit" value="S" className="search-btn" />
+          <button type="submit" className="search-btn">
+            <span className="material-symbols-outlined">search</span>
+          </button>
         </form>
 
         <SearchCurrentCity
@@ -82,14 +84,14 @@ export default function Search(props) {
                 <span
                   onClick={(e) => {
                     props.setCity(e.target.innerText);
-                    console.log(e.target.innerText);
-
                     props.search(e.target.innerText);
                   }}
                 >
                   {city.name}
                 </span>
-                <button onClick={() => removeCity(city.id)}>x</button>
+                <button onClick={() => removeCity(city.id)}>
+                  <span className="material-symbols-outlined">close</span>
+                </button>
               </li>
             );
           })}

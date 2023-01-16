@@ -6,10 +6,6 @@ export default function CurrentWeatherIndicators(props) {
   const [indicators, setIndicators] = useState(null);
   const [air, setAir] = useState(null);
 
-  let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
-  let lat = props.data.coord.lat;
-  let lon = props.data.coord.lon;
-
   useEffect(() => {
     setReady(false);
   }, [props.data.coord]);
@@ -42,23 +38,14 @@ export default function CurrentWeatherIndicators(props) {
     }
   }
 
-  function showForecast(response) {
-    setIndicators(response.data.current);
-    setReady(true);
-  }
-
   function showAirPolution(response) {
     setAir(response.data.list[0].main.aqi);
   }
 
-  function airQuality() {
-    let apiUr = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-    axios.get(apiUr).then(showAirPolution);
-  }
-
-  function visibilityUv() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showForecast);
+  function showForecast(response) {
+    setIndicators(response.data.current);
+    console.log(response.data.current);
+    setReady(true);
   }
 
   if (ready) {
@@ -87,8 +74,15 @@ export default function CurrentWeatherIndicators(props) {
       </ul>
     );
   } else {
-    airQuality();
-    visibilityUv();
+    let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
+    let lat = props.data.coord.lat;
+    let lon = props.data.coord.lon;
+
+    let apiUr = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    axios.get(apiUr).then(showAirPolution);
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
 
     return `loading....`;
   }

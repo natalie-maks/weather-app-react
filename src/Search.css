@@ -28,6 +28,11 @@
   border-radius: 0;
 }
 
+.Search .close-btn span {
+  font-size: 36px;
+  line-height: 36px;
+}
+
 form {
   width: calc(100% - 92px);
   height: 92px;
@@ -61,6 +66,11 @@ form .search-btn {
   top: 0;
 }
 
+form .search-btn span {
+  font-size: 36px;
+  line-height: 36px;
+}
+
 .CurrentCity {
   display: flex;
   justify-content: space-between;
@@ -68,11 +78,15 @@ form .search-btn {
 }
 
 .CurrentCity button {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   font-size: 32px;
   background: none;
   border: none;
+}
+
+.CurrentCity button span {
+  font-size: 28px;
 }
 
 .cities-list li {
@@ -82,9 +96,12 @@ form .search-btn {
 }
 
 .cities-list li button {
-  width: 20px;
-  height: 20px;
-  font-size: 32px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
+}
+
+.cities-list li button span {
+  font-size: 32px;
 }

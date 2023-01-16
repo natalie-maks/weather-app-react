@@ -6,7 +6,6 @@ export default function SearchCurrentCity(props) {
   useEffect(() => {
     props.cities.forEach((city) => {
       if (city.name === props.cityName) {
-        console.log("here");
         setExist(true);
       } else {
         setExist(false);
@@ -24,7 +23,9 @@ export default function SearchCurrentCity(props) {
     return (
       <p className="CurrentCity">
         <span>{props.cityName}</span>
-        <button onClick={() => props.addCity(props.cityName)}>+</button>
+        <button onClick={() => props.addCity(props.cityName)}>
+          <span className="material-symbols-outlined">add_circle</span>
+        </button>
       </p>
     );
   }
