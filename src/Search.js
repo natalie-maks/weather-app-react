@@ -29,7 +29,13 @@ export default function Search(props) {
   }
 
   return (
-    <div className="Search">
+    <div
+      className="Search"
+      style={{
+        opacity: props.show ? 1 : 0,
+        pointerEvents: props.show ? `all` : `none`,
+      }}
+    >
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -83,6 +89,8 @@ export default function Search(props) {
           );
         })}
       </ul>
+
+      <button onClick={() => props.change()}>Close</button>
     </div>
   );
 }

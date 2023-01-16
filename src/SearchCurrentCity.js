@@ -24,7 +24,7 @@ export default function SearchCurrentCity(props) {
     return (
       <p className="CurrentCity">
         <span>{props.cityName}</span>
-        <button onClick={() => props.addCity(props.city)}>+</button>
+        <button onClick={() => props.addCity(props.cityName)}>+</button>
       </p>
     );
   }

@@ -17,6 +17,8 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   const [units, setUnits] = useState("metric");
+  const [detailsIsVisible, setDetailsIsVisible] = useState(false);
+  const [searchIsVisible, setSearchIsVisible] = useState(false);
 
   function getPosition(position) {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
@@ -34,14 +36,13 @@ export default function Weather(props) {
     setWeatherData({ ready: false });
   }, [units]);
 
-  function showFahrenheit(event) {
+  function changeUnits(event) {
     event.preventDefault();
-    setUnits("imperial");
-  }
-
-  function showCelsius(event) {
-    event.preventDefault();
-    setUnits("metric");
+    if (units === "metric") {
+      setUnits("imperial");
+    } else {
+      setUnits("metric");
+    }
   }
 
   function showWeather(response) {
@@ -58,21 +59,14 @@ export default function Weather(props) {
       coord: response.data.coord,
       ready: true,
     });
+
+    setCity(response.data.name);
   }
 
   function search(object) {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${object}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showWeather);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    search(city);
-  }
-
-  function handleCityChange(event) {
-    setCity(event.target.value);
   }
 
   let currentDate = new Date(weatherData.date * 1000);
@@ -83,58 +77,16 @@ export default function Weather(props) {
       weatherData.timezone) *
     1000;
 
+  function changeDetailsVisib() {
+    setDetailsIsVisible((current) => !current);
+  }
+  function changeSearchVisib() {
+    setSearchIsVisible((current) => !current);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="search-block">
-          <div className="row  gx-2 mb-3 d-md-none">
-            <div className="col-8">
-              <button className=" current-button" onClick={position}>
-                Current
-              </button>
-            </div>
-            <div className="col-2">
-              <button className=" temperature-button" onClick={showCelsius}>
-                ℃
-              </button>
-            </div>
-            <div className="col-2">
-              <button className="temperature-button" onClick={showFahrenheit}>
-                ℉
-              </button>
-            </div>
-          </div>
-          <div className="row gx-2">
-            <div className="col-md-7">
-              <form className="search-block-item" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Enter a city..."
-                  autoComplete="off"
-                  className="city-input"
-                  onChange={handleCityChange}
-                />
-                <button type="submit" className="search-button"></button>
-              </form>
-            </div>
-            <div className="d-none d-md-block col-md-3">
-              <button className=" current-button" onClick={position}>
-                Current
-              </button>
-            </div>
-            <div className="d-none d-md-block col-md-1">
-              <button className=" temperature-button" onClick={showCelsius}>
-                ℃
-              </button>
-            </div>
-            <div className="d-none d-md-block col-1">
-              <button className="temperature-button" onClick={showFahrenheit}>
-                ℉
-              </button>
-            </div>
-          </div>
-        </div>
-
         <div className="main-info">
           <div>
             <h1>{weatherData.cityName}</h1>
@@ -161,19 +113,34 @@ export default function Weather(props) {
             </div>
           </div>
           <div className="menu-btns">
-            <button className="btn">D</button>
-            <button className="btn">S</button>
-            <button className="btn">L</button>
-            <button className="btn">C</button>
+            <button className="btn" onClick={changeDetailsVisib}>
+              D
+            </button>
+            <button className="btn" onClick={changeSearchVisib}>
+              S
+            </button>
+            <button className="btn" onClick={position}>
+              L
+            </button>
+            <button className="btn" onClick={changeUnits}>
+              C
+            </button>
           </div>
         </div>
 
-        <WeatherDetails data={weatherData} units={units} />
+        <WeatherDetails
+          data={weatherData}
+          units={units}
+          show={detailsIsVisible}
+          change={changeDetailsVisib}
+        />
         <Search
           city={city}
           setCity={setCity}
           search={search}
           cityName={weatherData.cityName}
+          show={searchIsVisible}
+          change={changeSearchVisib}
         />
       </div>
     );

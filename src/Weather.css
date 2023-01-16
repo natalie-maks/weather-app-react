@@ -64,7 +64,6 @@ p.time-date {
   top: 0;
   display: flex;
   flex-direction: column;
-  display: none;
 }
 
 .btn {
