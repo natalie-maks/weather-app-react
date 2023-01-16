@@ -2,12 +2,26 @@
   position: absolute;
   top: 0;
   right: 0;
+  transition: all 300ms ease-in-out;
+  height: 100%;
+  display: flex;
+}
+
+.WeatherDetails .main-container {
   width: 496px;
   height: 100%;
   overflow-y: scroll;
   scrollbar-width: 0;
   background-color: #abc2d2;
   padding-inline: 52px;
+}
+
+.WeatherDetails .close-btn {
+  height: 92px;
+  width: 58px;
+  background-color: #abc2d2;
+  border: none;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar {

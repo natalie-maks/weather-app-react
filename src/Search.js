@@ -36,61 +36,65 @@ export default function Search(props) {
         pointerEvents: props.show ? `all` : `none`,
       }}
     >
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (
-            e.target[0].value.toLowerCase() === props.cityName.toLowerCase()
-          ) {
-            e.target[0].value = "";
-            return;
-          } else {
-            props.search(props.city);
-            e.target[0].value = "";
-          }
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Enter a city..."
-          onChange={(e) => {
-            props.setCity(e.target.value);
+      <button className="close-btn" onClick={() => props.change()}>
+        Cl
+      </button>
+
+      <div className="main-container">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (
+              e.target[0].value.toLowerCase() === props.cityName.toLowerCase()
+            ) {
+              e.target[0].value = "";
+              return;
+            } else {
+              props.search(props.city);
+              e.target[0].value = "";
+            }
           }}
-          autoComplete="off"
-          className="city-input"
+        >
+          <input
+            type="text"
+            placeholder="Enter a city..."
+            onChange={(e) => {
+              props.setCity(e.target.value);
+            }}
+            autoComplete="off"
+            className="city-input"
+          />
+          <input type="submit" value="S" className="search-btn" />
+        </form>
+
+        <SearchCurrentCity
+          addCity={addCity}
+          city={props.city}
+          cityName={props.cityName}
+          cities={cities}
+          setCities={setCities}
         />
-        <input type="submit" value="S" className="search-btn" />
-      </form>
 
-      <SearchCurrentCity
-        addCity={addCity}
-        city={props.city}
-        cityName={props.cityName}
-        cities={cities}
-        setCities={setCities}
-      />
+        <ul className="cities-list">
+          {cities.map((city) => {
+            return (
+              <li key={city.id}>
+                <span
+                  onClick={(e) => {
+                    props.setCity(e.target.innerText);
+                    console.log(e.target.innerText);
 
-      <ul className="cities-list">
-        {cities.map((city) => {
-          return (
-            <li key={city.id}>
-              <span
-                onClick={(e) => {
-                  props.setCity(e.target.innerText);
-                  console.log(e.target.innerText);
-
-                  props.search(e.target.innerText);
-                }}
-              >
-                {city.name}
-              </span>
-              <button onClick={() => removeCity(city.id)}>x</button>
-            </li>
-          );
-        })}
-      </ul>
-
-      <button onClick={() => props.change()}>Close</button>
+                    props.search(e.target.innerText);
+                  }}
+                >
+                  {city.name}
+                </span>
+                <button onClick={() => removeCity(city.id)}>x</button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

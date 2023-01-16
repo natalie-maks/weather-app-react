@@ -13,11 +13,15 @@ export default function WeatherDetails(props) {
         pointerEvents: props.show ? `all` : `none`,
       }}
     >
-      <button onClick={() => props.change()}>Close</button>
-      <h3>Weather Details</h3>
-      <CurrentWeatherIndicators data={props.data} />
-      <h3>Weather Forecast</h3>
-      <WeatherForecast coord={props.data.coord} units={props.units} />
+      <button className="close-btn" onClick={() => props.change()}>
+        Cl
+      </button>
+      <div className="main-container">
+        <h3>Weather Details</h3>
+        <CurrentWeatherIndicators data={props.data} />
+        <h3>Weather Forecast</h3>
+        <WeatherForecast coord={props.data.coord} units={props.units} />
+      </div>
     </div>
   );
 }

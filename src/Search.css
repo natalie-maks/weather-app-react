@@ -2,13 +2,30 @@
   position: absolute;
   top: 0;
   right: 0;
+  height: 100%;
+  display: flex;
+  transition: all 300ms ease-in-out;
+
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+}
+
+.Search .main-container {
   width: 496px;
   height: 100%;
   background-color: #abc2d2;
   padding-inline: 52px;
-  font-size: 28px;
-  line-height: 32px;
-  font-weight: 300;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+}
+
+.Search .close-btn {
+  height: 92px;
+  width: 58px;
+  background-color: #abc2d2;
+  border: none;
+  border-radius: 0;
 }
 
 form {
