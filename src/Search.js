@@ -32,6 +32,7 @@ export default function Search(props) {
         onSubmit={(e) => {
           e.preventDefault();
           props.search();
+          e.target[0].value = "";
         }}
       >
         <input
@@ -40,8 +41,10 @@ export default function Search(props) {
           onChange={(e) => {
             props.setCity(e.target.value);
           }}
+          autoComplete="off"
+          className="city-input"
         />
-        <input type="submit" value="add" />
+        <input type="submit" value="S" className="search-btn" />
       </form>
 
       <p className="current-city">
@@ -49,7 +52,7 @@ export default function Search(props) {
         <button onClick={() => addCity(props.city)}>+</button>
       </p>
 
-      <ul>
+      <ul className="cities-list">
         {cities.map((city) => {
           return (
             <li key={city.id}>

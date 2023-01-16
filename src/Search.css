@@ -8,4 +8,66 @@
   padding-inline: 52px;
   font-size: 28px;
   line-height: 32px;
+  font-weight: 300;
+}
+
+form {
+  width: calc(100% - 92px);
+  height: 92px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #000;
+}
+
+form .city-input {
+  padding-bottom: 20px;
+  width: 100%;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+  border: none;
+  background: none;
+}
+
+form .city-input:focus {
+  outline: none;
+}
+
+form .search-btn {
+  width: 92px;
+  height: 92px;
+  border-radius: 0;
+  border: none;
+  background-color: #b2cadb;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.current-city {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 52px;
+}
+
+.current-city button {
+  width: 20px;
+  height: 20px;
+  font-size: 32px;
+  background: none;
+  border: none;
+}
+
+.cities-list li {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cities-list li button {
+  width: 20px;
+  height: 20px;
+  font-size: 32px;
+  background: none;
+  border: none;
 }
