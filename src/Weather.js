@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import WeatherBackground from "./WeatherBackground";
 import WeatherDetails from "./WeatherDetails";
 import Search from "./Search";
 
@@ -87,6 +88,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
+        <WeatherBackground icon={weatherData.icon} />
         <div className="main-info">
           <div>
             <h1>{weatherData.cityName}</h1>
