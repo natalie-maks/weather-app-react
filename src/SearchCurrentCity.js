@@ -4,13 +4,17 @@ export default function SearchCurrentCity(props) {
   const [exist, setExist] = useState(false);
 
   useEffect(() => {
+    let citiesNameArr = [];
     props.cities.forEach((city) => {
-      if (city.name === props.cityName) {
-        setExist(true);
-      } else {
-        setExist(false);
-      }
+      citiesNameArr.push(city.name);
     });
+    console.log(citiesNameArr);
+
+    if (citiesNameArr.includes(props.cityName)) {
+      setExist(true);
+    } else {
+      setExist(false);
+    }
   }, [props.cities, props.cityName]);
 
   if (exist) {
