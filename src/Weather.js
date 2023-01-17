@@ -20,6 +20,7 @@ export default function Weather(props) {
   const [units, setUnits] = useState("metric");
   const [detailsIsVisible, setDetailsIsVisible] = useState(false);
   const [searchIsVisible, setSearchIsVisible] = useState(false);
+  const [white, setWhite] = useState(true);
 
   function getPosition(position) {
     let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
@@ -85,10 +86,12 @@ export default function Weather(props) {
     setSearchIsVisible((current) => !current);
   }
 
+  const whiteClass = white ? `Weather white` : `Weather`;
+
   if (weatherData.ready) {
     return (
-      <div className="Weather">
-        <WeatherBackground icon={weatherData.icon} />
+      <div className={whiteClass}>
+        <WeatherBackground icon={weatherData.icon} setWhite={setWhite} />
         <div className="main-info">
           <div>
             <h1>{weatherData.cityName}</h1>

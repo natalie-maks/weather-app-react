@@ -10,6 +10,22 @@
   object-fit: cover;
 }
 
+.Weather.white * {
+  color: white;
+}
+
+.Weather.white form input::placeholder {
+  color: white;
+}
+
+.Weather.white form {
+  border-color: white;
+}
+
+.Weather.white .CurrentWeatherIndicators {
+  border-color: white;
+}
+
 .main-info {
   margin-left: 80px;
   height: 100%;

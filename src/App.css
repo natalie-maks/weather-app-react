@@ -5,11 +5,8 @@
 }
 body {
   font-family: "Roboto", sans-serif;
-
-  color: white;
   width: 100vw;
   height: 100vh;
-
   overflow: hidden;
 }
 
