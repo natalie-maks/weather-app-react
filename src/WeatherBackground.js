@@ -37,13 +37,6 @@ export default function WeatherIcon(props) {
     "50n": mist,
   };
 
-  const colorBlackArr = [`09d`, `09n`, `03d`, `02d`];
-  if (colorBlackArr.includes(props.icon)) {
-    props.setWhite(false);
-  } else {
-    props.setWhite(true);
-  }
-
   function setColor(color1, color2, color3, color4, color5, color6) {
     document.documentElement.style.setProperty("--main-color", color1);
     document.documentElement.style.setProperty("--second-color", color2);
