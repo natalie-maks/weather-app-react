@@ -15,11 +15,11 @@
   scrollbar-width: 0;
   width: 100%;
   padding-inline: 24px;
-  background-color: rgba(171, 194, 210, 0.7);
+  background-color: var(--main-color-tr);
 }
 
 .WeatherDetails .close-btn {
-  background-color: #abc2d2;
+  background-color: var(--main-color);
   border: none;
   border-radius: 0;
   width: 100%;
@@ -32,7 +32,7 @@
   display: block;
   width: calc(100% - 48px);
   height: 1px;
-  background-color: black;
+  background-color: var(--text-color);
   position: absolute;
   bottom: 0;
   left: 24px;
@@ -56,7 +56,7 @@
 }
 
 .CurrentWeatherIndicators {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--text-color);
 }
 
 .CurrentWeatherIndicators li {
@@ -144,7 +144,7 @@
 
   .WeatherDetails .main-container {
     width: 496px;
-    background-color: #abc2d2;
+    background-color: var(--main-color);
     padding-inline: 52px;
     height: 100%;
   }
@@ -152,6 +152,6 @@
   .WeatherDetails .close-btn {
     height: 92px;
     width: 58px;
-    background-color: #abc2d2;
+    background-color: var(--main-color);
   }
 }
