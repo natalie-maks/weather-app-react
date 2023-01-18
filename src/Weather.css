@@ -10,6 +10,11 @@
   object-fit: cover;
 }
 
+.Weather {
+  height: 100%;
+  width: 100%;
+}
+
 .Weather.white * {
   color: white;
 }
@@ -27,7 +32,8 @@
 }
 
 .main-info {
-  margin-left: 80px;
+  margin-left: 24px;
+  margin-right: 24px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -35,258 +41,189 @@
 }
 
 h1 {
-  font-size: 60px;
-  line-height: 60px;
+  font-size: 40px;
+  line-height: 40px;
   font-weight: 400;
-  margin-bottom: 12px;
-  margin-top: 60px;
+  margin-bottom: 8px;
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid black;
 }
 
 p.time-date {
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 20px;
   font-weight: 400;
 }
 
 .temp-block {
   display: flex;
-  align-items: flex-end;
-  margin-bottom: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0;
 }
 
 .CurrentTemp {
   display: flex;
   align-items: flex-start;
-  margin-right: 52px;
+  margin-bottom: 24px;
 }
 
 .CurrentTemp .temp-digit {
-  font-size: 160px;
-  line-height: 120px;
+  font-size: 120px;
+  line-height: 92px;
   font-weight: 400;
 }
 
 .CurrentTemp .temp-unit {
-  font-size: 60px;
-  line-height: 52px;
-  font-weight: 400;
-}
-
-.temp-descr .description {
-  text-transform: capitalize;
-  font-size: 52px;
-  line-height: 52px;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.temp-descr .FeelsLike {
-  font-size: 40px;
+  font-size: 44px;
   line-height: 40px;
   font-weight: 400;
 }
 
+.temp-descr {
+  margin-bottom: 96px;
+}
+
+.temp-descr .description {
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 52px;
+  margin-bottom: 0;
+}
+
+.temp-descr .FeelsLike {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
 .menu-btns {
-  position: fixed;
-  right: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.btn {
-  width: 92px;
-  height: 92px;
-  border: none;
-  border-radius: 0;
-  font-size: 36px;
-}
-
-.btn span {
-  font-size: 36px;
-  line-height: 36px;
-}
-
-.btn:nth-child(1) {
-  background-color: #abc2d2;
-}
-.btn:nth-child(2) {
-  background-color: #b2cadb;
-}
-.btn:nth-child(3) {
-  background-color: #bad3e5;
-}
-.btn:nth-child(4) {
-  background-color: #c2dcf0;
-}
-
-.search-block {
   display: none;
-  height: 35px;
-  margin: 0 calc(10px - 0.25rem);
-}
-
-.search-block-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Weather {
-  height: 100%;
-  width: 100%;
 }
 
 .mobile {
-  display: none;
+  display: block;
 }
 
-@media (max-width: 800px) {
-  .mobile {
-    display: block;
-  }
+.details-mob-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border: none;
+  background-color: #abc2d2;
+}
+
+.search-mob-btn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-mob-btn span {
+  font-size: 36px;
+  margin-right: 24px;
+}
+
+@media (min-width: 800px) {
   .main-info {
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 80px;
+    margin-right: 0;
   }
+
   h1 {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 8px;
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid black;
+    font-size: 60px;
+    line-height: 60px;
+    margin-bottom: 12px;
+    margin-top: 60px;
+    border: none;
   }
 
   p.time-date {
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .temp-block {
+    align-items: flex-end;
+    margin-bottom: 100px;
+    flex-direction: row;
   }
 
   .CurrentTemp {
-    margin-bottom: 24px;
+    align-items: flex-start;
+    margin-right: 52px;
   }
 
   .CurrentTemp .temp-digit {
-    font-size: 120px;
-    line-height: 92px;
+    font-size: 160px;
+    line-height: 120px;
   }
 
   .CurrentTemp .temp-unit {
-    font-size: 44px;
-    line-height: 40px;
+    font-size: 60px;
+    line-height: 52px;
   }
 
   .temp-descr {
-    margin-bottom: 96px;
+    margin-bottom: 0;
   }
 
   .temp-descr .description {
-    font-size: 36px;
-    line-height: 52px;
-    margin-bottom: 0;
+    font-size: 52px;
+    margin-bottom: 12px;
   }
 
   .temp-descr .FeelsLike {
-    font-size: 24px;
-    line-height: 24px;
-    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
   }
 
   .menu-btns {
-    display: none;
-  }
-  .temp-block {
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 0;
   }
 
-  .details-mob-btn {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
+  .btn {
+    width: 92px;
+    height: 92px;
     border: none;
+    border-radius: 0;
+    font-size: 36px;
+  }
+
+  .btn span {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .btn:nth-child(1) {
     background-color: #abc2d2;
   }
-
-  .WeatherDetails {
-    left: 0;
-    bottom: 0;
-    flex-direction: column;
+  .btn:nth-child(2) {
+    background-color: #b2cadb;
+  }
+  .btn:nth-child(3) {
+    background-color: #bad3e5;
+  }
+  .btn:nth-child(4) {
+    background-color: #c2dcf0;
   }
 
-  .WeatherDetails .main-container {
-    width: 100%;
-    padding-inline: 24px;
-    background-color: rgba(171, 194, 210, 0.7);
-  }
-  .WeatherDetails .close-btn {
-    width: 100%;
-    height: 60px;
-  }
-
-  .search-mob-btn {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    border: 0;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .search-mob-btn span {
-    font-size: 36px;
-    margin-right: 24px;
-  }
-
-  .Search {
-    left: 0;
-    bottom: 0;
-    flex-direction: column-reverse;
-  }
-
-  .Search .main-container {
-    width: 100%;
-    padding-inline: 24px;
-    position: relative;
-    height: calc(100% - 60px);
-    background-color: rgba(171, 194, 210, 0.7);
-  }
-
-  .Search .close-btn {
-    width: 100%;
-    height: 60px;
-  }
-
-  .Search form {
-    width: 100%;
-  }
-
-  .Search form .search-btn {
-    position: relative;
-    width: fit-content;
-    background: none;
-  }
-
-  .Search .search-cont-mob-btns {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 24px;
-    border-bottom: 1px solid black;
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 48px);
-  }
-  .Search .search-cont-mob-btns .btn {
-    background-color: red;
-    width: 48%;
-    height: 52px;
+  .mobile {
+    display: none !important;
   }
 }

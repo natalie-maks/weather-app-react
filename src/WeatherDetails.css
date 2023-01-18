@@ -3,25 +3,27 @@
   top: 0;
   right: 0;
   transition: all 300ms ease-in-out;
-  height: 100%;
   display: flex;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
 }
 
 .WeatherDetails .main-container {
-  width: 496px;
   height: 100%;
   overflow-y: scroll;
   scrollbar-width: 0;
-  background-color: #abc2d2;
-  padding-inline: 52px;
+  width: 100%;
+  padding-inline: 24px;
+  background-color: rgba(171, 194, 210, 0.7);
 }
 
 .WeatherDetails .close-btn {
-  height: 92px;
-  width: 58px;
   background-color: #abc2d2;
   border: none;
   border-radius: 0;
+  width: 100%;
+  height: 60px;
 }
 
 .WeatherDetails .close-btn span {
@@ -103,4 +105,25 @@
   font-size: 24px;
   line-height: 32px;
   font-weight: 300;
+}
+
+@media (min-width: 800px) {
+  .WeatherDetails {
+    flex-direction: row;
+    left: unset;
+    bottom: unset;
+    height: 100%;
+  }
+
+  .WeatherDetails .main-container {
+    width: 496px;
+    background-color: #abc2d2;
+    padding-inline: 52px;
+  }
+
+  .WeatherDetails .close-btn {
+    height: 92px;
+    width: 58px;
+    background-color: #abc2d2;
+  }
 }
