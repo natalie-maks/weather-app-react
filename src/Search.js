@@ -96,6 +96,9 @@ export default function Search(props) {
                   onClick={(e) => {
                     props.setCity(e.target.innerText);
                     props.search(e.target.innerText);
+                    if (window.innerWidth < 800) {
+                      props.change();
+                    }
                   }}
                 >
                   {city.name}
