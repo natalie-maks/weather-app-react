@@ -20,6 +20,7 @@ export default function Weather(props) {
   const [units, setUnits] = useState("metric");
   const [detailsIsVisible, setDetailsIsVisible] = useState(false);
   const [searchIsVisible, setSearchIsVisible] = useState(false);
+  const [mainHidden, setMainHidden] = useState(false);
   const [white, setWhite] = useState(true);
 
   function getPosition(position) {
@@ -80,10 +81,22 @@ export default function Weather(props) {
     1000;
 
   function changeDetailsVisib() {
-    setDetailsIsVisible((current) => !current);
+    if (detailsIsVisible) {
+      setDetailsIsVisible(false);
+      setMainHidden(false);
+    } else {
+      setDetailsIsVisible(true);
+      setMainHidden(true);
+    }
   }
   function changeSearchVisib() {
-    setSearchIsVisible((current) => !current);
+    if (searchIsVisible) {
+      setSearchIsVisible(false);
+      setMainHidden(false);
+    } else {
+      setSearchIsVisible(true);
+      setMainHidden(true);
+    }
   }
 
   const whiteClass = white ? `Weather white` : `Weather`;
@@ -92,7 +105,7 @@ export default function Weather(props) {
     return (
       <div className={whiteClass}>
         <WeatherBackground icon={weatherData.icon} setWhite={setWhite} />
-        <div className="main-info">
+        <div className="main-info" style={{ opacity: mainHidden ? 0 : 1 }}>
           <div>
             <h1>{weatherData.cityName}</h1>
 
@@ -133,6 +146,21 @@ export default function Weather(props) {
               </span>
             </button>
           </div>
+
+          <button
+            className="details-mob-btn mobile"
+            onClick={changeDetailsVisib}
+          >
+            det
+          </button>
+          <button className="search-mob-btn mobile">
+            <span
+              className="material-symbols-outlined"
+              onClick={changeSearchVisib}
+            >
+              menu
+            </span>
+          </button>
         </div>
 
         <WeatherDetails
@@ -148,6 +176,8 @@ export default function Weather(props) {
           cityName={weatherData.cityName}
           show={searchIsVisible}
           change={changeSearchVisib}
+          position={position}
+          changeUnits={changeUnits}
         />
       </div>
     );

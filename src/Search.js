@@ -53,6 +53,10 @@ export default function Search(props) {
               props.search(props.city);
               e.target[0].value = "";
             }
+
+            if (window.innerWidth < 800) {
+              props.change();
+            }
           }}
         >
           <input
@@ -96,6 +100,27 @@ export default function Search(props) {
             );
           })}
         </ul>
+
+        <div className="mobile search-cont-mob-btns">
+          <button
+            className="btn"
+            onClick={() => {
+              props.position();
+              props.change();
+            }}
+          >
+            <span className="material-symbols-outlined">location_on</span>
+          </button>
+          <button
+            className="btn"
+            onClick={(e) => {
+              props.changeUnits(e);
+              props.change();
+            }}
+          >
+            <span className="material-symbols-outlined">device_thermostat</span>
+          </button>
+        </div>
       </div>
     </div>
   );
