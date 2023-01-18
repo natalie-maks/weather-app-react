@@ -83,19 +83,27 @@ export default function Weather(props) {
   function changeDetailsVisib() {
     if (detailsIsVisible) {
       setDetailsIsVisible(false);
-      setMainHidden(false);
+      if (window.innerWidth < 800) {
+        setMainHidden(false);
+      }
     } else {
       setDetailsIsVisible(true);
-      setMainHidden(true);
+      if (window.innerWidth < 800) {
+        setMainHidden(true);
+      }
     }
   }
   function changeSearchVisib() {
     if (searchIsVisible) {
       setSearchIsVisible(false);
-      setMainHidden(false);
+      if (window.innerWidth < 800) {
+        setMainHidden(false);
+      }
     } else {
       setSearchIsVisible(true);
-      setMainHidden(true);
+      if (window.innerWidth < 800) {
+        setMainHidden(true);
+      }
     }
   }
 

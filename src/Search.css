@@ -127,6 +127,21 @@ form .search-btn span {
   height: 52px;
 }
 
+@media (min-width: 500px) {
+  .Search .main-container {
+    padding-inline: 64px;
+    height: calc(100% - 88px);
+  }
+
+  .Search .close-btn {
+    height: 88px;
+  }
+
+  .Search .search-cont-mob-btns {
+    width: calc(100% - 128px);
+  }
+}
+
 @media (min-width: 800px) {
   .Search {
     flex-direction: row;

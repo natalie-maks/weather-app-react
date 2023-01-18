@@ -135,18 +135,18 @@ p.time-date {
   margin-right: 24px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 500px) {
   .main-info {
-    margin-left: 80px;
-    margin-right: 0;
+    margin-left: 64px;
+    margin-right: 64px;
   }
 
   h1 {
     font-size: 60px;
     line-height: 60px;
     margin-bottom: 12px;
-    margin-top: 60px;
-    border: none;
+    margin-top: 88px;
+    padding-top: 60px;
   }
 
   p.time-date {
@@ -156,13 +156,16 @@ p.time-date {
 
   .temp-block {
     align-items: flex-end;
-    margin-bottom: 100px;
     flex-direction: row;
+    margin-bottom: 88px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid black;
   }
 
   .CurrentTemp {
     align-items: flex-start;
     margin-right: 52px;
+    margin-bottom: 0;
   }
 
   .CurrentTemp .temp-digit {
@@ -187,6 +190,33 @@ p.time-date {
   .temp-descr .FeelsLike {
     font-size: 40px;
     line-height: 40px;
+  }
+
+  .details-mob-btn {
+    height: 88px;
+  }
+
+  .search-mob-btn {
+    height: 88px;
+  }
+}
+
+@media (min-width: 800px) {
+  .main-info {
+    margin-left: 80px;
+    margin-right: 0;
+  }
+
+  h1 {
+    padding-top: 0;
+    margin-top: 60px;
+    border: none;
+  }
+
+  .temp-block {
+    margin-bottom: 100px;
+    padding-bottom: 0;
+    border: none;
   }
 
   .menu-btns {
