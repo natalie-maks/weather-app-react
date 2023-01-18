@@ -11,6 +11,7 @@ export default function WeatherDetails(props) {
   const [forecast, setForecast] = useState(null);
   const [indicators, setIndicators] = useState(null);
   const [air, setAir] = useState(null);
+  const [closeBtn, setCloseBtn] = useState(`navigate_next`);
 
   useEffect(() => {
     setReady(false);
@@ -26,6 +27,12 @@ export default function WeatherDetails(props) {
     setAir(response.data.list[0].main.aqi);
   }
 
+  useEffect(() => {
+    if (window.innerWidth < 800) {
+      setCloseBtn(`expand_more`);
+    }
+  }, []);
+
   if (ready) {
     return (
       <div
@@ -36,7 +43,7 @@ export default function WeatherDetails(props) {
         }}
       >
         <button className="close-btn" onClick={() => props.change()}>
-          <span className="material-symbols-outlined">arrow_forward_ios</span>
+          <span class="material-symbols-outlined">{closeBtn}</span>
         </button>
         <div className="main-container">
           <h3>Weather Details</h3>

@@ -5,6 +5,7 @@ import "./Search.css";
 import SearchCurrentCity from "./SearchCurrentCity";
 
 export default function Search(props) {
+  const [closeBtn, setCloseBtn] = useState(`navigate_next`);
   const [cities, setCities] = useState(() => {
     const localData = localStorage.getItem("cities");
     return localData
@@ -28,6 +29,12 @@ export default function Search(props) {
     setCities(cities.filter((city) => city.id !== id));
   }
 
+  useEffect(() => {
+    if (window.innerWidth < 800) {
+      setCloseBtn(`expand_less`);
+    }
+  }, []);
+
   return (
     <div
       className="Search"
@@ -37,7 +44,7 @@ export default function Search(props) {
       }}
     >
       <button className="close-btn" onClick={() => props.change()}>
-        <span className="material-symbols-outlined">arrow_forward_ios</span>
+        <span class="material-symbols-outlined">{closeBtn}</span>{" "}
       </button>
 
       <div className="main-container">

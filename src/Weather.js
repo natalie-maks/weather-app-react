@@ -156,7 +156,7 @@ export default function Weather(props) {
             className="details-mob-btn mobile"
             onClick={changeDetailsVisib}
           >
-            det
+            <span class="material-symbols-outlined">expand_less</span>
           </button>
           <button className="search-mob-btn mobile">
             <span
