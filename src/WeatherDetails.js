@@ -13,10 +13,6 @@ export default function WeatherDetails(props) {
   const [air, setAir] = useState(null);
   const [closeBtn, setCloseBtn] = useState(`expand_more`);
 
-  useEffect(() => {
-    setReady(false);
-  }, [props.coord, props.units]);
-
   function showForecast(response) {
     setForecast(response.data.daily);
     setIndicators(response.data.current);
@@ -26,6 +22,10 @@ export default function WeatherDetails(props) {
   function showAirPolution(response) {
     setAir(response.data.list[0].main.aqi);
   }
+
+  useEffect(() => {
+    setReady(false);
+  }, [props.coord, props.units]);
 
   useEffect(() => {
     if (

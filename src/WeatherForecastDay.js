@@ -52,7 +52,6 @@ export default function WeatherForecastDay(props) {
         <span className="forecast-day">{day()}</span>
         <span className="forecast-date">{date()}</span>
       </span>
-
       <span>
         <span className="forecast-temp">
           {Math.round(props.data.temp.day)}°

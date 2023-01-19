@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { v1 as uuidv1 } from "uuid";
 import "./Search.css";
 
+import SearchForm from "./SearchForm";
 import SearchCurrentCity from "./SearchCurrentCity";
+import SearchCitiesList from "./SearchCitiesList";
+import SearchMobileBtns from "./SearchMobileBtns";
 
 export default function Search(props) {
   const [closeBtn, setCloseBtn] = useState(`expand_less`);
@@ -20,14 +22,6 @@ export default function Search(props) {
   useEffect(() => {
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
-
-  function addCity(name) {
-    setCities([...cities, { name, id: uuidv1() }]);
-  }
-
-  function removeCity(id) {
-    setCities(cities.filter((city) => city.id !== id));
-  }
 
   useEffect(() => {
     if (
@@ -64,89 +58,34 @@ export default function Search(props) {
       </button>
 
       <div className="main-container">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (
-              e.target[0].value.toLowerCase() === props.cityName.toLowerCase()
-            ) {
-              e.target[0].value = "";
-              return;
-            } else {
-              props.search(props.city);
-              e.target[0].value = "";
-            }
-
-            if (window.innerWidth < 1100) {
-              props.change();
-            }
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Enter a city..."
-            onChange={(e) => {
-              props.setCity(e.target.value);
-            }}
-            autoComplete="off"
-            className="city-input"
-          />
-          <button type="submit" className="search-btn">
-            <span className="material-symbols-outlined">search</span>
-          </button>
-        </form>
+        <SearchForm
+          cityName={props.cityName}
+          search={props.search}
+          city={props.city}
+          change={props.change}
+          setCity={props.setCity}
+        />
 
         <SearchCurrentCity
-          addCity={addCity}
           city={props.city}
           cityName={props.cityName}
           cities={cities}
           setCities={setCities}
         />
 
-        <ul className="cities-list">
-          {cities.map((city) => {
-            return (
-              <li key={city.id}>
-                <span
-                  onClick={(e) => {
-                    props.setCity(e.target.innerText);
-                    props.search(e.target.innerText);
-                    if (window.innerWidth < 1100) {
-                      props.change();
-                    }
-                  }}
-                >
-                  {city.name}
-                </span>
-                <button onClick={() => removeCity(city.id)}>
-                  <span className="material-symbols-outlined">close</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        <SearchCitiesList
+          cities={cities}
+          setCities={setCities}
+          setCity={props.setCity}
+          search={props.search}
+          change={props.change}
+        />
 
-        <div className="mobile search-cont-mob-btns">
-          <button
-            className="btn"
-            onClick={() => {
-              props.position();
-              props.change();
-            }}
-          >
-            <span className="material-symbols-outlined">location_on</span>
-          </button>
-          <button
-            className="btn"
-            onClick={(e) => {
-              props.changeUnits(e);
-              props.change();
-            }}
-          >
-            <span className="material-symbols-outlined">device_thermostat</span>
-          </button>
-        </div>
+        <SearchMobileBtns
+          position={props.position}
+          change={props.change}
+          changeUnits={props.changeUnits}
+        />
       </div>
     </div>
   );
