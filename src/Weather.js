@@ -84,12 +84,12 @@ export default function Weather(props) {
       setDetailsIsVisible(false);
 
       setTimeout(() => {
-        if (window.innerWidth < 800) {
+        if (window.innerWidth < 1100) {
           setMainHidden(false);
         }
       }, 200);
     } else {
-      if (window.innerWidth < 800) {
+      if (window.innerWidth < 1100) {
         setMainHidden(true);
       }
       setTimeout(() => {
@@ -101,12 +101,12 @@ export default function Weather(props) {
     if (searchIsVisible) {
       setSearchIsVisible(false);
       setTimeout(() => {
-        if (window.innerWidth < 800) {
+        if (window.innerWidth < 1100) {
           setMainHidden(false);
         }
       }, 200);
     } else {
-      if (window.innerWidth < 800) {
+      if (window.innerWidth < 1100) {
         setMainHidden(true);
       }
 

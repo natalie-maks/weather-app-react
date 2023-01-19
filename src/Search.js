@@ -5,7 +5,7 @@ import "./Search.css";
 import SearchCurrentCity from "./SearchCurrentCity";
 
 export default function Search(props) {
-  const [closeBtn, setCloseBtn] = useState(`navigate_next`);
+  const [closeBtn, setCloseBtn] = useState(`expand_less`);
   const [cities, setCities] = useState(() => {
     const localData = localStorage.getItem("cities");
     return localData
@@ -30,16 +30,25 @@ export default function Search(props) {
   }
 
   useEffect(() => {
-    if (window.innerWidth < 800) {
-      setCloseBtn(`expand_less`);
+    if (
+      window.innerWidth > 1100 ||
+      (window.innerWidth > 700 && window.innerHeight < 550)
+    ) {
+      setCloseBtn(`navigate_next`);
     }
   }, []);
 
   const translateFrom =
-    window.innerWidth < 800 ? `translateY(-100%)` : `translateX(100%)`;
+    window.innerWidth > 1100 ||
+    (window.innerWidth > 700 && window.innerHeight < 550)
+      ? `translateX(100%)`
+      : `translateY(-100%)`;
 
   const translateTo =
-    window.innerWidth < 800 ? `translateY(0%)` : `translateX(0%)`;
+    window.innerWidth > 1100 ||
+    (window.innerWidth > 700 && window.innerHeight < 550)
+      ? `translateX(0%)`
+      : `translateY(0%)`;
 
   return (
     <div
@@ -68,7 +77,7 @@ export default function Search(props) {
               e.target[0].value = "";
             }
 
-            if (window.innerWidth < 800) {
+            if (window.innerWidth < 1100) {
               props.change();
             }
           }}
@@ -103,7 +112,7 @@ export default function Search(props) {
                   onClick={(e) => {
                     props.setCity(e.target.innerText);
                     props.search(e.target.innerText);
-                    if (window.innerWidth < 800) {
+                    if (window.innerWidth < 1100) {
                       props.change();
                     }
                   }}

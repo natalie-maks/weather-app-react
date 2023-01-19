@@ -11,7 +11,7 @@ export default function WeatherDetails(props) {
   const [forecast, setForecast] = useState(null);
   const [indicators, setIndicators] = useState(null);
   const [air, setAir] = useState(null);
-  const [closeBtn, setCloseBtn] = useState(`navigate_next`);
+  const [closeBtn, setCloseBtn] = useState(`expand_more`);
 
   useEffect(() => {
     setReady(false);
@@ -28,16 +28,25 @@ export default function WeatherDetails(props) {
   }
 
   useEffect(() => {
-    if (window.innerWidth < 800) {
-      setCloseBtn(`expand_more`);
+    if (
+      window.innerWidth > 1100 ||
+      (window.innerWidth > 700 && window.innerHeight < 550)
+    ) {
+      setCloseBtn(`navigate_next`);
     }
   }, []);
 
   const translateFrom =
-    window.innerWidth < 800 ? `translateY(100%)` : `translateX(100%)`;
+    window.innerWidth > 1100 ||
+    (window.innerWidth > 700 && window.innerHeight < 550)
+      ? `translateX(100%)`
+      : `translateY(100%)`;
 
   const translateTo =
-    window.innerWidth < 800 ? `translateY(0%)` : `translateX(0%)`;
+    window.innerWidth > 1100 ||
+    (window.innerWidth > 700 && window.innerHeight < 550)
+      ? `translateX(0%)`
+      : `translateY(0%)`;
 
   if (ready) {
     return (

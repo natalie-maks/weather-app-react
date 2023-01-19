@@ -118,7 +118,7 @@
   font-weight: 300;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
   .WeatherDetails .main-container {
     padding-inline: 64px;
     height: calc(100% - 88px);
@@ -133,7 +133,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1100px) {
   .WeatherDetails {
     flex-direction: row;
     left: unset;
@@ -152,5 +152,31 @@
     height: 92px;
     width: 58px;
     background-color: var(--main-color);
+  }
+}
+
+@media (min-width: 700px) and (max-height: 550px) {
+  .WeatherDetails {
+    flex-direction: row;
+    left: unset;
+    bottom: unset;
+    height: 100%;
+  }
+
+  .WeatherDetails .main-container {
+    width: 496px;
+    background-color: var(--main-color);
+    padding-inline: 52px;
+    height: 100%;
+  }
+
+  .WeatherDetails .close-btn {
+    height: 72px;
+    width: 58px;
+    background-color: var(--main-color);
+  }
+
+  .WeatherDetails h3:first-of-type {
+    margin-top: 48px;
   }
 }

@@ -16,6 +16,8 @@
   z-index: -1;
   width: auto;
   height: auto;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
 }
 
@@ -79,7 +81,6 @@ p.time-date {
   font-weight: 400;
   font-size: 36px;
   line-height: 52px;
-  margin-bottom: 0;
 }
 
 .temp-descr .FeelsLike {
@@ -154,7 +155,7 @@ button {
   color: var(--text-color);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
   .main-info {
     margin-left: 64px;
     margin-right: 64px;
@@ -223,7 +224,7 @@ button {
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1100px) {
   .main-info {
     margin-left: 80px;
     margin-right: 0;
@@ -257,6 +258,92 @@ button {
 
   .btn span {
     font-size: 36px;
+  }
+
+  .btn:nth-child(1) {
+    background-color: var(--main-color);
+  }
+  .btn:nth-child(2) {
+    background-color: var(--second-color);
+  }
+  .btn:nth-child(3) {
+    background-color: var(--third-color);
+  }
+  .btn:nth-child(4) {
+    background-color: var(--fourth-color);
+  }
+
+  .mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 700px) and (max-height: 550px) {
+  .main-info {
+    margin-left: 48px;
+    margin-right: 0;
+  }
+
+  h1 {
+    margin-top: 24px;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  p.time-date {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .temp-block {
+    margin-bottom: 24px;
+    padding-bottom: 0;
+    border: none;
+  }
+
+  .CurrentTemp {
+    margin-right: 24px;
+  }
+
+  .CurrentTemp .temp-digit {
+    font-size: 120px;
+    line-height: 92px;
+  }
+
+  .CurrentTemp .temp-unit {
+    font-size: 44px;
+    line-height: 40px;
+  }
+
+  .temp-descr .description {
+    font-size: 40px;
+    line-height: 52px;
+    margin-bottom: 8px;
+  }
+
+  .temp-descr .FeelsLike {
+    font-size: 28px;
+    line-height: 24px;
+  }
+
+  .menu-btns {
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 72px;
+    height: 72px;
+    border: none;
+    border-radius: 0;
+    font-size: 36px;
+  }
+
+  .btn span {
+    font-size: 32px;
   }
 
   .btn:nth-child(1) {
