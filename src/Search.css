@@ -3,13 +3,14 @@
   top: 0;
   right: 0;
   display: flex;
-  transition: all 300ms ease-in-out;
   left: 0;
   bottom: 0;
   flex-direction: column-reverse;
   font-size: 28px;
   line-height: 32px;
   font-weight: 300;
+  transform: translateY(-50%);
+  transition: all 300ms ease-in-out;
 }
 
 .Search .main-container {
@@ -47,7 +48,7 @@
 
 form {
   width: 100%;
-  height: 92px;
+  height: 80px;
   display: flex;
   align-items: flex-end;
   border-bottom: 1px solid var(--text-color);
@@ -72,7 +73,7 @@ form .city-input:focus {
 }
 
 form .search-btn {
-  height: 92px;
+  height: 80px;
   border-radius: 0;
   border: none;
   right: 0;
@@ -107,7 +108,7 @@ form .search-btn span {
 .cities-list {
   overflow-y: scroll;
   scrollbar-width: 0;
-  height: calc(100% - 92px - 136px - 52px - 52px - 24px);
+  height: calc(100% - 80px - 136px - 52px - 52px - 24px);
 }
 
 .cities-list li {
@@ -159,7 +160,12 @@ form .search-btn span {
   }
 
   .cities-list {
-    height: calc(100% - 92px - 136px - 52px - 52px - 32px);
+    height: calc(100% - 88px - 136px - 52px - 52px - 32px);
+  }
+
+  form,
+  form .search-btn {
+    height: 88px;
   }
 }
 
@@ -185,6 +191,7 @@ form .search-btn span {
 
   form {
     width: calc(100% - 92px);
+    height: 92px;
   }
 
   form .search-btn {

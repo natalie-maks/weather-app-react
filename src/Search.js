@@ -35,12 +35,19 @@ export default function Search(props) {
     }
   }, []);
 
+  const translateFrom =
+    window.innerWidth < 800 ? `translateY(-100%)` : `translateX(100%)`;
+
+  const translateTo =
+    window.innerWidth < 800 ? `translateY(0%)` : `translateX(0%)`;
+
   return (
     <div
       className="Search"
       style={{
         opacity: props.show ? 1 : 0,
         pointerEvents: props.show ? `all` : `none`,
+        transform: props.visible ? translateTo : translateFrom,
       }}
     >
       <button className="close-btn" onClick={() => props.change()}>

@@ -82,27 +82,37 @@ export default function Weather(props) {
   function changeDetailsVisib() {
     if (detailsIsVisible) {
       setDetailsIsVisible(false);
-      if (window.innerWidth < 800) {
-        setMainHidden(false);
-      }
+
+      setTimeout(() => {
+        if (window.innerWidth < 800) {
+          setMainHidden(false);
+        }
+      }, 200);
     } else {
-      setDetailsIsVisible(true);
       if (window.innerWidth < 800) {
         setMainHidden(true);
       }
+      setTimeout(() => {
+        setDetailsIsVisible(true);
+      }, 200);
     }
   }
   function changeSearchVisib() {
     if (searchIsVisible) {
       setSearchIsVisible(false);
-      if (window.innerWidth < 800) {
-        setMainHidden(false);
-      }
+      setTimeout(() => {
+        if (window.innerWidth < 800) {
+          setMainHidden(false);
+        }
+      }, 200);
     } else {
-      setSearchIsVisible(true);
       if (window.innerWidth < 800) {
         setMainHidden(true);
       }
+
+      setTimeout(() => {
+        setSearchIsVisible(true);
+      }, 200);
     }
   }
 
@@ -173,6 +183,7 @@ export default function Weather(props) {
           units={units}
           show={detailsIsVisible}
           change={changeDetailsVisib}
+          visible={detailsIsVisible}
         />
         <Search
           city={city}
@@ -180,6 +191,7 @@ export default function Weather(props) {
           search={search}
           cityName={weatherData.cityName}
           show={searchIsVisible}
+          visible={searchIsVisible}
           change={changeSearchVisib}
           position={position}
           changeUnits={changeUnits}
