@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 import WeatherBackground from "./WeatherBackground";
 import WeatherDetails from "./WeatherDetails";
 import Search from "./Search";
-
-import FormattedDate from "./FormattedDate";
-import FormattedTime from "./FormattedTime";
+import TimeAndDate from "./TimeAndDate";
 
 import CurrentTemp from "./CurrentTemp";
 import CurrentFeelsLike from "./CurrentFeelsLIke";
@@ -21,31 +19,6 @@ export default function Weather(props) {
   const [detailsIsVisible, setDetailsIsVisible] = useState(false);
   const [searchIsVisible, setSearchIsVisible] = useState(false);
   const [mainHidden, setMainHidden] = useState(false);
-
-  function getPosition(position) {
-    let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrlCurrent).then(showWeather);
-  }
-
-  function position() {
-    navigator.geolocation.getCurrentPosition(getPosition);
-  }
-
-  useEffect(() => {
-    setWeatherData({ ready: false });
-  }, [units]);
-
-  function changeUnits(event) {
-    event.preventDefault();
-    if (units === "metric") {
-      setUnits("imperial");
-    } else {
-      setUnits("metric");
-    }
-  }
 
   function showWeather(response) {
     setWeatherData({
@@ -71,13 +44,30 @@ export default function Weather(props) {
     axios.get(apiUrl).then(showWeather);
   }
 
-  let currentDate = new Date(weatherData.date * 1000);
+  function getPosition(position) {
+    let apiKey = `c670fa7c4d1ccad9ebab8f9eb49cae65`;
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrlCurrent).then(showWeather);
+  }
 
-  let locationTime =
-    (weatherData.date +
-      currentDate.getTimezoneOffset() * 60 +
-      weatherData.timezone) *
-    1000;
+  function position() {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
+  function changeUnits(event) {
+    event.preventDefault();
+    if (units === "metric") {
+      setUnits("imperial");
+    } else {
+      setUnits("metric");
+    }
+  }
+
+  useEffect(() => {
+    setWeatherData({ ready: false });
+  }, [units]);
 
   function changeDetailsVisib() {
     if (detailsIsVisible) {
@@ -92,14 +82,17 @@ export default function Weather(props) {
       if (window.innerWidth < 1100) {
         setMainHidden(true);
       }
+
       setTimeout(() => {
         setDetailsIsVisible(true);
       }, 200);
     }
   }
+
   function changeSearchVisib() {
     if (searchIsVisible) {
       setSearchIsVisible(false);
+
       setTimeout(() => {
         if (window.innerWidth < 1100) {
           setMainHidden(false);
@@ -124,15 +117,10 @@ export default function Weather(props) {
           <div>
             <h1>{weatherData.cityName}</h1>
 
-            <p className="time-date">
-              <span>
-                <FormattedTime time={new Date(locationTime)} />
-              </span>{" "}
-              —{" "}
-              <span>
-                <FormattedDate date={new Date(locationTime)} />
-              </span>
-            </p>
+            <TimeAndDate
+              date={weatherData.date}
+              timezone={weatherData.timezone}
+            />
           </div>
 
           <div className="temp-block">
