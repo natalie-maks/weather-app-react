@@ -9,24 +9,26 @@ export default function CurrentWeatherIndicators(props) {
     5: "Very Poor",
   };
 
-  function uv() {
-    if (props.indicators.uvi < 3) {
-      return `Low Risk`;
-    } else {
-      if (props.indicators.uvi < 6) {
-        return `Moderate Risk`;
-      } else {
-        if (props.indicators.uvi < 8) {
-          return `High Risk`;
-        } else {
-          if (props.indicators.uvi < 10) {
-            return `Very High Risk`;
-          } else {
-            return `Extreme Risk`;
-          }
-        }
-      }
-    }
+  let uv = ``;
+
+  switch (true) {
+    case props.indicators.uvi < 3:
+      uv = `Low Risk`;
+      break;
+    case props.indicators.uvi < 6:
+      uv = `Moderate Risk`;
+      break;
+    case props.indicators.uvi < 8:
+      uv = `High Risk`;
+      break;
+    case props.indicators.uvi < 10:
+      uv = `Very High  Risk`;
+      break;
+    case props.indicators.uvi >= 10:
+      uv = `Extreme Risk`;
+      break;
+    default:
+      uv = `Low Risk`;
   }
 
   return (
@@ -49,7 +51,7 @@ export default function CurrentWeatherIndicators(props) {
       </li>
       <li>
         <span>UV</span>
-        <span>{uv()}</span>
+        <span>{uv}</span>
       </li>
     </ul>
   );
