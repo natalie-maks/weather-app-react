@@ -28,7 +28,6 @@
   border: none;
   border-radius: 0;
   position: relative;
-  cursor: pointer;
 }
 
 .Search .close-btn::before {
@@ -64,11 +63,11 @@ form .city-input {
   border: none;
   background: none;
   color: var(--text-color);
+  cursor: pointer;
 }
 
 form input::placeholder {
   color: var(--text-color);
-  font-weight: 300;
 }
 
 form .city-input:focus {
@@ -84,7 +83,6 @@ form .search-btn {
   position: relative;
   width: fit-content;
   background: none;
-  cursor: pointer;
 }
 
 form .search-btn span {
@@ -95,6 +93,7 @@ form .search-btn span {
   display: flex;
   justify-content: space-between;
   margin-block: 52px;
+  cursor: default;
 }
 
 .CurrentCity button {
@@ -103,7 +102,6 @@ form .search-btn span {
   font-size: 32px;
   background: none;
   border: none;
-  cursor: pointer;
 }
 
 .CurrentCity button span {
@@ -135,7 +133,6 @@ form .search-btn span {
 
 .SearchCitiesList li button span {
   font-size: 32px;
-  cursor: pointer;
 }
 
 .Search .SearchMobileBtns {

@@ -25,7 +25,6 @@
   width: 100%;
   height: 80px;
   position: relative;
-  cursor: pointer;
 }
 
 .WeatherDetails .close-btn::after {

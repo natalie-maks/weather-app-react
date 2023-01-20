@@ -153,6 +153,7 @@ p.TimeAndDate {
 
 button {
   color: var(--text-color);
+  cursor: pointer;
 }
 
 @media (min-width: 700px) {
@@ -254,7 +255,6 @@ button {
     border: none;
     border-radius: 0;
     font-size: 36px;
-    cursor: pointer;
   }
 
   .btn span {
@@ -341,7 +341,6 @@ button {
     border: none;
     border-radius: 0;
     font-size: 36px;
-    cursor: pointer;
   }
 
   .btn span {
