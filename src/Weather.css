@@ -254,6 +254,7 @@ button {
     border: none;
     border-radius: 0;
     font-size: 36px;
+    cursor: pointer;
   }
 
   .btn span {
@@ -278,7 +279,7 @@ button {
   }
 }
 
-@media (min-width: 700px) and (max-height: 550px) {
+@media (min-width: 650px) and (max-height: 550px) {
   .WeatherMainInfo {
     margin-left: 48px;
     margin-right: 0;
@@ -340,6 +341,7 @@ button {
     border: none;
     border-radius: 0;
     font-size: 36px;
+    cursor: pointer;
   }
 
   .btn span {
