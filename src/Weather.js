@@ -16,6 +16,23 @@ export default function Weather(props) {
   const [detailsIsVisible, setDetailsIsVisible] = useState(false);
   const [searchIsVisible, setSearchIsVisible] = useState(false);
   const [mainHidden, setMainHidden] = useState(false);
+  const [dimensions, setDimensions] = React.useState({
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   function showWeather(response) {
     setWeatherData({
@@ -65,6 +82,16 @@ export default function Weather(props) {
   useEffect(() => {
     setWeatherData({ ready: false });
   }, [units]);
+
+  useEffect(() => {
+    if (window.innerWidth > 1100) {
+      setMainHidden(false);
+    } else {
+      if (detailsIsVisible || searchIsVisible) {
+        setMainHidden(true);
+      }
+    }
+  }, [dimensions, detailsIsVisible, searchIsVisible]);
 
   function changeDetailsVisib() {
     if (detailsIsVisible) {
@@ -126,6 +153,7 @@ export default function Weather(props) {
           show={detailsIsVisible}
           change={changeDetailsVisib}
           visible={detailsIsVisible}
+          dimensions={dimensions}
         />
         <Search
           city={city}
@@ -137,6 +165,7 @@ export default function Weather(props) {
           change={changeSearchVisib}
           position={position}
           changeUnits={changeUnits}
+          dimensions={dimensions}
         />
       </div>
     );

@@ -33,8 +33,10 @@ export default function WeatherDetails(props) {
       (window.innerWidth > 700 && window.innerHeight < 550)
     ) {
       setCloseBtn(`navigate_next`);
+    } else {
+      setCloseBtn(`expand_more`);
     }
-  }, []);
+  }, [props.dimensions]);
 
   const translateFrom =
     window.innerWidth > 1100 ||
