@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import WeatherBackground from "./WeatherBackground";
+import WeatherMainInfo from "./WeatherMainInfo.js";
 import WeatherDetails from "./WeatherDetails";
 import Search from "./Search";
-import TimeAndDate from "./TimeAndDate";
-
-import CurrentTemp from "./CurrentTemp";
-import CurrentFeelsLike from "./CurrentFeelsLIke";
 
 import axios from "axios";
 
@@ -113,58 +110,15 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <WeatherBackground icon={weatherData.icon} />
-        <div className="main-info" style={{ opacity: mainHidden ? 0 : 1 }}>
-          <div>
-            <h1>{weatherData.cityName}</h1>
-
-            <TimeAndDate
-              date={weatherData.date}
-              timezone={weatherData.timezone}
-            />
-          </div>
-
-          <div className="temp-block">
-            <CurrentTemp units={units} temp={weatherData.temp} />
-            <div className="temp-descr">
-              <h2 className="description">{weatherData.description}</h2>
-              <CurrentFeelsLike
-                units={units}
-                feelsLike={weatherData.feelsLike}
-              />
-            </div>
-          </div>
-          <div className="menu-btns">
-            <button className="btn" onClick={changeDetailsVisib}>
-              <span className="material-symbols-outlined">query_stats</span>{" "}
-            </button>
-            <button className="btn" onClick={changeSearchVisib}>
-              <span className="material-symbols-outlined">search</span>
-            </button>
-            <button className="btn" onClick={position}>
-              <span className="material-symbols-outlined">location_on</span>
-            </button>
-            <button className="btn" onClick={changeUnits}>
-              <span className="material-symbols-outlined">
-                device_thermostat
-              </span>
-            </button>
-          </div>
-
-          <button
-            className="details-mob-btn mobile"
-            onClick={changeDetailsVisib}
-          >
-            <span class="material-symbols-outlined">expand_less</span>
-          </button>
-          <button className="search-mob-btn mobile">
-            <span
-              className="material-symbols-outlined"
-              onClick={changeSearchVisib}
-            >
-              menu
-            </span>
-          </button>
-        </div>
+        <WeatherMainInfo
+          weatherData={weatherData}
+          mainHidden={mainHidden}
+          units={units}
+          changeDetailsVisib={changeDetailsVisib}
+          changeSearchVisib={changeSearchVisib}
+          position={position}
+          changeUnits={changeUnits}
+        />
 
         <WeatherDetails
           data={weatherData}

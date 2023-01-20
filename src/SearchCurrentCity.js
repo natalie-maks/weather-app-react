@@ -11,7 +11,6 @@ export default function SearchCurrentCity(props) {
     });
     if (citiesNameArr.includes(props.cityName)) {
       setExist(true);
-      console.log(`setExist`);
     } else {
       setExist(false);
     }

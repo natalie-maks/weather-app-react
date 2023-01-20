@@ -54,7 +54,7 @@ export default function Search(props) {
       }}
     >
       <button className="close-btn" onClick={() => props.change()}>
-        <span class="material-symbols-outlined">{closeBtn}</span>{" "}
+        <span className="material-symbols-outlined">{closeBtn}</span>{" "}
       </button>
 
       <div className="main-container">

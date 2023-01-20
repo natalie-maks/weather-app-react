@@ -208,8 +208,6 @@ export default function WeatherIcon(props) {
       "--main-color-tr",
       iconColor[props.icon][5]
     );
-
-    console.log(props.icon);
   }, [props.icon]);
 
   return (
