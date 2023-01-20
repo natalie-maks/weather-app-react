@@ -155,7 +155,7 @@ button {
   color: var(--text-color);
 }
 
-@media (min-width: 550px) {
+@media (min-width: 700px) {
   .WeatherMainInfo {
     margin-left: 64px;
     margin-right: 64px;

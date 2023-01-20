@@ -25,7 +25,7 @@ export default function WeatherDetails(props) {
 
   useEffect(() => {
     setReady(false);
-  }, [props.coord, props.units]);
+  }, [props.data.coord, props.units]);
 
   useEffect(() => {
     if (

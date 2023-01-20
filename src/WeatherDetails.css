@@ -118,7 +118,7 @@
   font-weight: 300;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 700px) {
   .WeatherDetails .main-container {
     padding-inline: 64px;
     height: calc(100% - 88px);

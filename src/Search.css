@@ -145,7 +145,7 @@ form .search-btn span {
   border-radius: 0;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 700px) {
   .Search .main-container {
     padding-inline: 64px;
     height: calc(100% - 88px);
