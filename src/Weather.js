@@ -143,6 +143,8 @@ export default function Weather(props) {
           units={units}
           changeDetailsVisib={changeDetailsVisib}
           changeSearchVisib={changeSearchVisib}
+          detailsIsVisible={detailsIsVisible}
+          searchIsVisible={searchIsVisible}
           position={position}
           changeUnits={changeUnits}
         />

@@ -236,7 +236,7 @@ button {
   }
 
   .MainInfoTempBlock {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     padding-bottom: 0;
     border: none;
   }
@@ -247,6 +247,7 @@ button {
     top: 0;
     display: flex;
     flex-direction: column;
+    transition: opacity 200ms linear;
   }
 
   .btn {
@@ -333,6 +334,7 @@ button {
     top: 0;
     display: flex;
     flex-direction: column;
+    transition: all 200ms linear;
   }
 
   .btn {

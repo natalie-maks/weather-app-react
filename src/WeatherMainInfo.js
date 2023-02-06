@@ -19,6 +19,8 @@ export default function WeatherMainInfo(props) {
         changeSearchVisib={props.changeSearchVisib}
         position={props.position}
         changeUnits={props.changeUnits}
+        detailsIsVisible={props.detailsIsVisible}
+        searchIsVisible={props.searchIsVisible}
       />
 
       <button
